@@ -153,10 +153,8 @@ app.put('/addUser', function (req, res) {
 
                 // schrijf de nieuwe data terug.
                 fs.writeFile(__dirname + "/" + 'personeels_data.json', newData, err => {
-                    // error checking
-                    if (err) throw err;
-
-                    console.log("New user added");
+                    // 201 Indicates that the request has succeeded and a new resource has been created as a result.
+                    res.status(200).end("New user added");
                 });
 
                 res.end("User: " + JSON.stringify(body) + " added");
@@ -191,12 +189,9 @@ app.delete('/deleteUser', function (req, res) {
                         console.log(users);
                         newData = JSON.stringify(users);
                         fs.writeFile(__dirname + "/" + 'personeels_data.json', newData, err => {
-                            // error checking
-                            if (err) throw err;
-
-                            console.log("User data deleted");
+                            // 200 OK Indicates that the request has succeeded.
+                            res.status(200).end("User: " + JSON.stringify(users[i]) + " deleted");
                         });
-                        res.end("User: " + JSON.stringify(users[i]) + " deleted");
                     }
                 }
             }
@@ -209,34 +204,44 @@ xml2js = require('xml2js');
 var parser = new xml2js.Parser();
 var response = "not found";;
 
-// getUsers haalt alle users op of 1 specefieke XML 
+// getUsers haalt alle users op of 1 specefieke node 
 
 // Als je de query leegt laat haalt hij alle users op.
 app.get('/getUsersXML', function (req, res) {
     if (req.query.ssn == null) {
         fs.readFile(__dirname + "/" + "personeels_data.xml", function (err, data) {
-            parser.parseString(data, function (err, result) {
-                console.log(JSON.stringify(result));
-                res.end(JSON.stringify(result));
-            });
+            if (err == null) {
+                parser.parseString(data, function (err, result) {
+                    // 200 OK Indicates that the request has succeeded.
+                    res.status(200).end(JSON.stringify(result));
+                });
+            } else {
+                // 404 Not Found The server can not find the requested resource.
+                res.status(404).end("Error reading file");
+            }
         });
     } else {
         // als je in de query een ssn nummer mee geeft wordt 1 specifieke User opgehaald
         fs.readFile(__dirname + "/" + "personeels_data.xml", function (err, data) {
-            parser.parseString(data, function (err, res) {
-                // var users = JSON.parse(result);
-                // hier loopen we door alle users heen opzoek naar de juiste ssn
-                users = res.root.row;
-                for (var i = 0; i < users.length; i++) {
-                    if (users !== null) {
-                        if (users[i].ssn == req.query.ssn) {
-                            console.log(users[i]);
-                            response = JSON.stringify(users[i]);
+            if (err == null) {
+                parser.parseString(data, function (err, res) {
+                    // var users = JSON.parse(result);
+                    // hier loopen we door alle users heen opzoek naar de juiste ssn
+                    users = res.root.row;
+                    for (var i = 0; i < users.length; i++) {
+                        if (users !== null) {
+                            if (users[i].ssn == req.query.ssn) {
+                                response = JSON.stringify(users[i]);
+                            }
                         }
                     }
-                }
-            });
-            res.end(response);
+                });
+                // 200 OK Indicates that the request has succeeded.
+                res.end(response);
+            } else {
+                // 404 Not Found The server can not find the requested resource.
+                res.status(404).end("Error reading file");
+            }
         });
     }
 });
@@ -252,11 +257,9 @@ app.post('/addUserXML', function (req, res) {
     var schema = xsd.parseFile(schemaPath);
     var validationErrors = schema.validate(body);
 
+    // valideer de body tegen het xml schema
     if (validationErrors == null) {
-        // valideer de body tegen het xml schema
-        console.log('correcte XML');
         // lees de huidige file in
-
         fs.readFile(__dirname + "/" + "personeels_data.xml", 'utf8', function (err, xml) {
 
             // Omdat in Javascript XML nodes toevoegen lastig is parsen weer eerst de XML naar een JS object, voegen we de nieuwe user toe en parsen we hem terug naar XMl
@@ -265,7 +268,6 @@ app.post('/addUserXML', function (req, res) {
                 row = row.root.row;
                 // voeg hem toe.
                 row.push(req.body);
-
                 // Het xml document decoreren en invullen
                 extraxml = {
                     "root": [{
@@ -282,14 +284,16 @@ app.post('/addUserXML', function (req, res) {
                         // 201 Created 	Indicates that the request has succeeded and a new resource has been created as a result.
                         res.status(201).end("User added");
                     } else {
-                        res.end("Error writing file");
+                        // 400 Bad Request The request could not be understood by the server due to incorrect syntax. The client SHOULD NOT repeat the request without modifications.
+                        res.status(400).end("Error writing file");
                     }
                 });
             });
         });
 
     } else {
-        res.end("Invallid XML");
+        // 400 Bad Request The request could not be understood by the server due to incorrect syntax. The client SHOULD NOT repeat the request without modifications.
+        res.status(400).end("Incorrect XML");
     }
 })
 
@@ -305,6 +309,7 @@ app.delete('/deleteUserXML', function (req, res) {
             row = resp.root.row;
             if (req.query.ssn == null) {
                 res.end("Enter SSN");
+
             } else {
 
                 for (var i = 0; i < row.length; i++) {
@@ -330,9 +335,11 @@ app.delete('/deleteUserXML', function (req, res) {
                             fs.writeFile(__dirname + "/" + 'personeels_data.xml', XMLnewData, err => {
                                 // error checking
                                 if (err == null) {
-                                    res.end("User deleted");
+                                    // 200 OK Indicates that the request has succeeded.
+                                    res.status(200).end("User deleted");
                                 } else {
-                                    res.end("Error writing file");
+                                    // 400 Bad Request The request could not be understood by the server due to incorrect syntax. The client SHOULD NOT repeat the request without modifications.
+                                    res.status(400).end("Error writing file");
                                 }
                             });
                         }
