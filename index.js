@@ -98,25 +98,37 @@ var schema = {
 app.get('/getUsers', function (req, res) {
     if (req.query.ssn == null) {
         fs.readFile(__dirname + "/" + "personeels_data.json", 'utf8', function (err, data) {
-            console.log(data);
-            res.end(data);
+            if (err == null) {
+                // 200 OK Indicates that the request has succeeded.
+                res.status(200).end(data);
+            } else {
+                // 404 Not Found The server can not find the requested resource.
+                res.status(404).end("Error reading file");
+            }
+
         });
     } else {
         // als je in de query een ssn nummer mee geeft wordt 1 specifieke User opgehaald
         fs.readFile(__dirname + "/" + "personeels_data.json", 'utf8', function (err, data) {
-            var users = JSON.parse(data);
-            // hier loopen we door alle users heen opzoek naar de juiste ssn
-            for (var i = 0; i < users.length; i++) {
-                if (users !== null) {
-                    if (users[i].ssn == req.query.ssn) {
-                        console.log(users[i]);
-                        res.end(JSON.stringify(users[i]));
+            if (err == null) {
+                var users = JSON.parse(data);
+                // hier loopen we door alle users heen opzoek naar de juiste ssn
+                for (var i = 0; i < users.length; i++) {
+                    if (users !== null) {
+                        if (users[i].ssn == req.query.ssn) {
+                            // 200 OK Indicates that the request has succeeded.
+                            res.status(200).end(JSON.stringify(users[i]));
+                        }
                     }
                 }
-            }
-            // is de loop klaar en is de res.end nog niet gevuurt, informeer user niet gevonden
-            if (i == users.length) {
-                res.end("not found");
+                // is de loop klaar en is de res.end nog niet gevuurt, informeer user niet gevonden
+                if (i == users.length) {
+                    // 404 Not Found The server can not find the requested resource.
+                    res.status(404).end("User not found");
+                }
+            } else {
+                // 404 Not Found The server can not find the requested resource.
+                res.status(404).end("Error reading file");
             }
         });
     }
@@ -131,29 +143,31 @@ app.put('/addUser', function (req, res) {
 
     // valideer de body tegen het JSON schema
     if (v.validate(body, schema)) {
-        console.log('correcte json');
         // lees de huidige file in
         fs.readFile(__dirname + "/" + "personeels_data.json", 'utf8', function (err, data) {
-            data = JSON.parse(data);
-            // voeg de nieuwe user toe
-            data.push(body);
+            if (err == null) {
+                data = JSON.parse(data);
+                // voeg de nieuwe user toe
+                data.push(body);
+                newData = JSON.stringify(data);
 
-            newData = JSON.stringify(data);
+                // schrijf de nieuwe data terug.
+                fs.writeFile(__dirname + "/" + 'personeels_data.json', newData, err => {
+                    // error checking
+                    if (err) throw err;
 
-            // schrijf de nieuwe data terug.
-            fs.writeFile(__dirname + "/" + 'personeels_data.json', newData, err => {
-                // error checking
-                if (err) throw err;
+                    console.log("New user added");
+                });
 
-                console.log("New user added");
-            });
-
-            console.log(newData);
-            res.end("User: " + JSON.stringify(body) + " added");
+                res.end("User: " + JSON.stringify(body) + " added");
+            } else {
+                // 404 Not Found The server can not find the requested resource.
+                res.status(404).end("Error reading file");
+            }
         });
     } else {
-        console.log('fout');
-        res.end('JSON incorrect');
+        // 400 Bad Request The request could not be understood by the server due to incorrect syntax. The client SHOULD NOT repeat the request without modifications.
+        res.status(400).end('JSON incorrect');
     }
 })
 
@@ -238,7 +252,6 @@ app.post('/addUserXML', function (req, res) {
     var schema = xsd.parseFile(schemaPath);
     var validationErrors = schema.validate(body);
 
-    console.log();
     if (validationErrors == null) {
         // valideer de body tegen het xml schema
         console.log('correcte XML');
@@ -265,15 +278,18 @@ app.post('/addUserXML', function (req, res) {
                 // schrijf de nieuwe data terug.
                 fs.writeFile(__dirname + "/" + 'personeels_data.xml', XMLnewData, err => {
                     // error checking
-                    if(err == null){
-                        res.end("User added");
-                    }else{
+                    if (err == null) {
+                        // 201 Created 	Indicates that the request has succeeded and a new resource has been created as a result.
+                        res.status(201).end("User added");
+                    } else {
                         res.end("Error writing file");
                     }
                 });
             });
         });
 
+    } else {
+        res.end("Invallid XML");
     }
 })
 
@@ -313,9 +329,9 @@ app.delete('/deleteUserXML', function (req, res) {
                             // schrijf de nieuwe data terug.
                             fs.writeFile(__dirname + "/" + 'personeels_data.xml', XMLnewData, err => {
                                 // error checking
-                                if(err == null){
+                                if (err == null) {
                                     res.end("User deleted");
-                                }else{
+                                } else {
                                     res.end("Error writing file");
                                 }
                             });
