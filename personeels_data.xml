@@ -268,7 +268,7 @@
     <ssn>925-45-7116</ssn>
     <lastname>Whitehead</lastname>
     <firstname>David</firstname>
-    <hiredate>7/25/1980</hiredate>
+    <hiredate>1980-07-25</hiredate>
     <salary> 175,000.00</salary>
     <gender>M</gender>
     <performance>Good</performance>
@@ -279,11 +279,24 @@
     <ssn>312-62-1233</ssn>
     <lastname>Hoff</lastname>
     <firstname>Mart</firstname>
-    <hiredate>12/6/2020</hiredate>
+    <hiredate>2020-06-12</hiredate>
     <salary>22,500.00</salary>
     <gender>M</gender>
     <performance>Good</performance>
     <position>CEO</position>
     <location>Emmen</location>
+  </row>
+  <row>
+    <row>
+      <ssn>925-45-7116</ssn>
+      <lastname>Whitehead</lastname>
+      <firstname>David</firstname>
+      <hiredate>1980-07-25</hiredate>
+      <salary>175,000.00</salary>
+      <gender>M</gender>
+      <performance>Good</performance>
+      <position>Regional Manager</position>
+      <location>Boston</location>
+    </row>
   </row>
 </root>

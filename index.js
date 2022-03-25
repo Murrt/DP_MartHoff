@@ -294,6 +294,8 @@ app.post('/addUserXML', function (req, res) {
     } else {
         // 400 Bad Request The request could not be understood by the server due to incorrect syntax. The client SHOULD NOT repeat the request without modifications.
         res.status(400).end("Incorrect XML");
+
+        console.log(validationErrors);
     }
 })
 
@@ -305,13 +307,10 @@ app.delete('/deleteUserXML', function (req, res) {
     // Haal alle users op 
     fs.readFile(__dirname + "/" + "personeels_data.xml", 'utf8', function (err, data) {
         parser.parseString(data, function (err, resp) {
-
             row = resp.root.row;
             if (req.query.ssn == null) {
                 res.end("Enter SSN");
-
             } else {
-
                 for (var i = 0; i < row.length; i++) {
                     // de delete functie van JS laat een empty item achter, dus zonder users !== null krijg je na een delete een error bij het loopen 
                     if (row !== null) {
@@ -322,7 +321,6 @@ app.delete('/deleteUserXML', function (req, res) {
                             // user gevonden
                             // delete de user uit de 
                             delete row[i];
-
                             extraxml = {
                                 "root": [{
                                     row
@@ -349,11 +347,6 @@ app.delete('/deleteUserXML', function (req, res) {
         });
     });
 });
-
-
-
-
-
 
 function OBJtoXML(obj) {
     var xml = '';

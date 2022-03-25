@@ -1,17 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="row">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="ssn" type="xs:string" />
-        <xs:element name="lastname" type="xs:string" />
-        <xs:element name="firstname" type="xs:string" />
-        <xs:element name="hiredate" type="xs:string" />
-        <xs:element name="salary" type="xs:string" />
-        <xs:element name="gender" type="xs:string" />
-        <xs:element name="performance" type="xs:string" />
-        <xs:element name="position" type="xs:string" />
-        <xs:element name="location" type="xs:string" />
+        <xs:element name="ssn">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="12" />
+              <xs:minLength value="10" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element type="xs:string" name="lastname" />
+        <xs:element type="xs:string" name="firstname" />
+        <xs:element type="xs:date" name="hiredate" />
+        <xs:element type="xs:string" name="salary" />
+        <xs:element type="xs:string" name="gender" />
+        <xs:element type="xs:string" name="performance" />
+        <xs:element type="xs:string" name="position" />
+        <xs:element type="xs:string" name="location" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
