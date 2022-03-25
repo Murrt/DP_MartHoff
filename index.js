@@ -1,3 +1,7 @@
+const Validator = require('jsonschema').Validator;
+const v = new Validator();
+
+
 const express = require('express');
 const app = express();
 const PORT = 8080;
@@ -11,6 +15,13 @@ app.listen(
 );
 
 var fs = require('fs');
+
+var js2xmlparser = require("js2xmlparser");
+var jsonxml = require('jsontoxml');
+
+const xml = require('xml');
+const xmlparser = require('express-xml-bodyparser')
+const xmlMiddleware = require('xml-express-middleware').xml;
 
 
 // Schema waarmee we gaan valideren of de ingevoerde JSON correct is.
@@ -169,3 +180,93 @@ app.delete('/deleteUser', function (req, res) {
         }
     });
 });
+
+
+
+xml2js = require('xml2js');
+var parser = new xml2js.Parser();
+var response = "not found";;
+
+// getUsers haalt alle users op of 1 specefieke XML 
+
+// Als je de query leegt laat haalt hij alle users op.
+app.get('/getUsersXML', function (req, res) {
+    if (req.query.ssn == null) {
+        fs.readFile(__dirname + "/" + "personeels_data.xml", function (err, data) {
+            parser.parseString(data, function (err, result) {
+                console.log(JSON.stringify(result));
+                res.end(JSON.stringify(result));
+            });
+        });
+    } else {
+        // als je in de query een ssn nummer mee geeft wordt 1 specifieke User opgehaald
+        fs.readFile(__dirname + "/" + "personeels_data.xml", function (err, data) {
+            parser.parseString(data, function (err, res) {
+                // var users = JSON.parse(result);
+                // hier loopen we door alle users heen opzoek naar de juiste ssn
+                users = res.root.row;
+                for (var i = 0; i < users.length; i++) {
+                    if (users !== null) {
+                        if (users[i].ssn == req.query.ssn) {
+                            console.log(users[i]);
+                            response = JSON.stringify(users[i]);
+                        }
+                    }
+                }
+            });
+            res.end(response);
+        });
+    }
+});
+
+
+
+
+// addUser voegt een User toe aan de XML
+app.post('/addUserXML', function (req, res) {
+    body = req.rawBody;
+    // schema validatie 
+    schemaPath = "pesoneels_data_scheme.xsd";
+    var schema = xsd.parseFile(schemaPath);
+    var validationErrors = schema.validate(body);
+
+    console.log();
+    if (validationErrors == null) {
+        // valideer de body tegen het xml schema
+        console.log('correcte XML');
+        // lees de huidige file in
+
+        fs.readFile(__dirname + "/" + "personeels_data.xml", 'utf8', function (err, xml) {
+
+            // Omdat in Javascript XML nodes toevoegen lastig is parsen weer eerst de XML naar een JS object, voegen we de nieuwe user toe en parsen we hem terug naar XMl
+            parser.parseString(xml, function (err, row) {
+                // voeg de nieuwe user toe
+                row = row.root.row;
+                // voeg hem toe.
+                row.push(req.body);
+
+                // Het xml document decoreren en invullen
+                extraxml = {
+                    "root": [{
+                        row
+                    }]
+                }
+                XMLnewData = OBJtoXML(extraxml);
+                XMLnewData = "<?xml version='1.0' encoding='UTF-8'?>" + XMLnewData;
+
+                // schrijf de nieuwe data terug.
+                fs.writeFile(__dirname + "/" + 'personeels_data.xml', XMLnewData, err => {
+                    // error checking
+                    if (err) {
+                        
+                    } else {
+                        res.end("User: " + JSON.stringify(req.body) + " added");
+                    }
+                });
+            });
+        });
+
+    }
+})
+
+
