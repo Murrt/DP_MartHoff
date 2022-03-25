@@ -7,20 +7,13 @@ const express = require('express');
 const app = express();
 const PORT = 8080;
 
-var XMLHttpRequest = require('xhr2');
-
 var fs = require('fs');
 var xml2js = require('xml2js');
 var parser = new xml2js.Parser()
 
 var xsd = require('libxmljs2-xsd');
 
-var js2xmlparser = require("js2xmlparser");
-var jsonxml = require('jsontoxml');
-
-const xml = require('xml');
 const xmlparser = require('express-xml-bodyparser')
-const xmlMiddleware = require('xml-express-middleware').xml;
 
 app.use(express.json());
 app.use(xmlparser());

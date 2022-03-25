@@ -286,17 +286,4 @@
     <position>CEO</position>
     <location>Emmen</location>
   </row>
-  <row>
-    <row>
-      <ssn>925-45-7116</ssn>
-      <lastname>Whitehead</lastname>
-      <firstname>David</firstname>
-      <hiredate>1980-07-25</hiredate>
-      <salary>175,000.00</salary>
-      <gender>M</gender>
-      <performance>Good</performance>
-      <position>Regional Manager</position>
-      <location>Boston</location>
-    </row>
-  </row>
 </root>
