@@ -1,10 +1,26 @@
+// initialiseer server/validator
+
 const Validator = require('jsonschema').Validator;
 const v = new Validator();
-
 
 const express = require('express');
 const app = express();
 const PORT = 8080;
+
+var XMLHttpRequest = require('xhr2');
+
+var fs = require('fs');
+var xml2js = require('xml2js');
+var parser = new xml2js.Parser()
+
+var xsd = require('libxmljs2-xsd');
+
+var js2xmlparser = require("js2xmlparser");
+var jsonxml = require('jsontoxml');
+
+const xml = require('xml');
+const xmlparser = require('express-xml-bodyparser')
+const xmlMiddleware = require('xml-express-middleware').xml;
 
 app.use(express.json());
 app.use(xmlparser());
@@ -15,13 +31,6 @@ app.listen(
 );
 
 var fs = require('fs');
-
-var js2xmlparser = require("js2xmlparser");
-var jsonxml = require('jsontoxml');
-
-const xml = require('xml');
-const xmlparser = require('express-xml-bodyparser')
-const xmlMiddleware = require('xml-express-middleware').xml;
 
 
 // Schema waarmee we gaan valideren of de ingevoerde JSON correct is.
@@ -182,7 +191,6 @@ app.delete('/deleteUser', function (req, res) {
 });
 
 
-
 xml2js = require('xml2js');
 var parser = new xml2js.Parser();
 var response = "not found";;
@@ -257,10 +265,10 @@ app.post('/addUserXML', function (req, res) {
                 // schrijf de nieuwe data terug.
                 fs.writeFile(__dirname + "/" + 'personeels_data.xml', XMLnewData, err => {
                     // error checking
-                    if (err) {
-                        
-                    } else {
-                        res.end("User: " + JSON.stringify(req.body) + " added");
+                    if(err == null){
+                        res.end("User added");
+                    }else{
+                        res.end("Error writing file");
                     }
                 });
             });
@@ -270,3 +278,77 @@ app.post('/addUserXML', function (req, res) {
 })
 
 
+
+
+app.delete('/deleteUserXML', function (req, res) {
+
+    // Haal alle users op 
+    fs.readFile(__dirname + "/" + "personeels_data.xml", 'utf8', function (err, data) {
+        parser.parseString(data, function (err, resp) {
+
+            row = resp.root.row;
+            if (req.query.ssn == null) {
+                res.end("Enter SSN");
+            } else {
+
+                for (var i = 0; i < row.length; i++) {
+                    // de delete functie van JS laat een empty item achter, dus zonder users !== null krijg je na een delete een error bij het loopen 
+                    if (row !== null) {
+                        UserSSN = row[i].ssn[0].replace('\'', '');
+                        if (UserSSN == req.query.ssn) {
+                            console.log(UserSSN);
+                            console.log(req.query.ssn);
+                            // user gevonden
+                            // delete de user uit de 
+                            delete row[i];
+
+                            extraxml = {
+                                "root": [{
+                                    row
+                                }]
+                            }
+                            XMLnewData = OBJtoXML(extraxml);
+                            XMLnewData = "<?xml version='1.0' encoding='UTF-8'?>" + XMLnewData;
+
+                            // schrijf de nieuwe data terug.
+                            fs.writeFile(__dirname + "/" + 'personeels_data.xml', XMLnewData, err => {
+                                // error checking
+                                if(err == null){
+                                    res.end("User deleted");
+                                }else{
+                                    res.end("Error writing file");
+                                }
+                            });
+                        }
+                    }
+                }
+            }
+        });
+    });
+});
+
+
+
+
+
+
+function OBJtoXML(obj) {
+    var xml = '';
+    for (var prop in obj) {
+        xml += obj[prop] instanceof Array ? '' : "<" + prop + ">";
+        if (obj[prop] instanceof Array) {
+            for (var array in obj[prop]) {
+                xml += "<" + prop + ">";
+                xml += OBJtoXML(new Object(obj[prop][array]));
+                xml += "</" + prop + ">";
+            }
+        } else if (typeof obj[prop] == "object") {
+            xml += OBJtoXML(new Object(obj[prop]));
+        } else {
+            xml += obj[prop];
+        }
+        xml += obj[prop] instanceof Array ? '' : "</" + prop + ">";
+    }
+    var xml = xml.replace(/<\/?[0-9]{1,}>/g, '');
+    return xml
+}
