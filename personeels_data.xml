@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+  <row>
+    <ssn>000-01-0000</ssn>
+    <lastname>Milgrom</lastname>
+    <firstname>Patricia</firstname>
+    <hiredate>10/1/2004</hiredate>
+    <salary> 57,500.00</salary>
+    <gender>F</gender>
+    <performance>Average</performance>
+    <position>Manager</position>
+    <location>Boston</location>
+  </row>
+  <row>
+    <ssn>000-02-2222</ssn>
+    <lastname>Adams</lastname>
+    <firstname>Sandy</firstname>
+    <hiredate>1/15/2001</hiredate>
+    <salary> 19,500.00</salary>
+    <gender>F</gender>
+    <performance>Average</performance>
+    <position>Trainee</position>
+    <location>Atlanta</location>
+  </row>
+  <row>
+    <ssn>109-87-6543</ssn>
+    <lastname>Wood</lastname>
+    <firstname>Emily</firstname>
+    <hiredate>3/12/1997</hiredate>
+    <salary> 69,000.00</salary>
+    <gender>F</gender>
+    <performance>Average</performance>
+    <position>Manager</position>
+    <location>New York City</location>
+  </row>
+  <row>
+    <ssn>109-87-6544</ssn>
+    <lastname>Foster</lastname>
+    <firstname>Harold</firstname>
+    <hiredate>8/14/2005</hiredate>
+    <salary> 55,000.00</salary>
+    <gender>M</gender>
+    <performance>Good</performance>
+    <position>Account Representative</position>
+    <location>Chicago</location>
+  </row>
+  <row>
+    <ssn>111-12-1111</ssn>
+    <lastname>Johnson</lastname>
+    <firstname>James</firstname>
+    <hiredate>5/3/1996</hiredate>
+    <salary> 47,500.00</salary>
+    <gender>M</gender>
+    <performance>Good</performance>
+    <position>Account Representative</position>
+    <location>Chicago</location>
+  </row>
+  <row>
+    <ssn>123-45-6789</ssn>
+    <lastname>Coulter</lastname>
+    <firstname>Tracy</firstname>
+    <hiredate>2/14/1993</hiredate>
+    <salary> 100,000.00</salary>
+    <gender></gender>
+    <performance>Good</performance>
+    <position>Manager</position>
+    <location>Atlanta</location>
+  </row>
+  <row>
+    <ssn>222-23-2222</ssn>
+    <lastname>Marlin</lastname>
+    <firstname>Bill</firstname>
+    <hiredate>3/28/1977</hiredate>
+    <salary> 125,000.00</salary>
+    <gender>M</gender>
+    <performance></performance>
+    <position>Manager</position>
+    <location>Miami</location>
+  </row>
+  <row>
+    <ssn>222-52-5555</ssn>
+    <lastname>Smith</lastname>
+    <firstname>Mary</firstname>
+    <hiredate>1/1/2006</hiredate>
+    <salary> 42,500.00</salary>
+    <gender>F</gender>
+    <performance>Average</performance>
+    <position>Account Representative</position>
+    <location>Chicago</location>
+  </row>
+  <row>
+    <ssn>245-67-8910</ssn>
+    <lastname>Johanson</lastname>
+    <firstname>Sandy</firstname>
+    <hiredate>6/2/2005</hiredate>
+    <salary> 69,000.00</salary>
+    <gender>F</gender>
+    <performance></performance>
+    <position>Account Representative</position>
+    <location>Denver</location>
+  </row>
+  <row>
+    <ssn>333-34-3333</ssn>
+    <lastname>Manin</lastname>
+    <firstname>Emily</firstname>
+    <hiredate>12/1/2000</hiredate>
+    <salary> 49,500.00</salary>
+    <gender>F</gender>
+    <performance>Average</performance>
+    <position>Account Representative</position>
+    <location>Boston</location>
+  </row>
+  <row>
+    <ssn>333-43-4444</ssn>
+    <lastname>Smith</lastname>
+    <firstname>Frank</firstname>
+    <hiredate>1/29/1991</hiredate>
+    <salary> 65,000.00</salary>
+    <gender>M</gender>
+    <performance>Good</performance>
+    <position>Account Representative</position>
+    <location>Atlanta</location>
+  </row>
+  <row>
+    <ssn>333-66-1234</ssn>
+    <lastname>Brown</lastname>
+    <firstname>Marietta</firstname>
+    <hiredate>3/7/2001</hiredate>
+    <salary> 18,500.00</salary>
+    <gender>F</gender>
+    <performance>Poor</performance>
+    <position>Trainee</position>
+    <location>Atlanta</location>
+  </row>
+  <row>
+    <ssn>335-55-5533</ssn>
+    <lastname>Jones</lastname>
+    <firstname>Holly</firstname>
+    <hiredate>4/8/1986</hiredate>
+    <salary> 65,000.00</salary>
+    <gender>F</gender>
+    <performance>Good</performance>
+    <position>Manager</position>
+    <location>New York City</location>
+  </row>
+  <row>
+    <ssn>432-19-8765</ssn>
+    <lastname>Bronson</lastname>
+    <firstname>Paul</firstname>
+    <hiredate>11/20/2003</hiredate>
+    <salary> 58,000.00</salary>
+    <gender>M</gender>
+    <performance>Good</performance>
+    <position>Manager</position>
+    <location>Denver</location>
+  </row>
+  <row>
+    <ssn>444-45-4444</ssn>
+    <lastname>Frank</lastname>
+    <firstname>Vernon</firstname>
+    <hiredate>4/10/1985</hiredate>
+    <salary> 75,000.00</salary>
+    <gender>M</gender>
+    <performance>Good</performance>
+    <position>Account Representative</position>
+    <location>Miami</location>
+  </row>
+  <row>
+    <ssn>464-64-4466</ssn>
+    <lastname>Webster</lastname>
+    <firstname>David</firstname>
+    <hiredate>1/29/1991</hiredate>
+    <salary> 58,500.00</salary>
+    <gender>M</gender>
+    <performance>Poor</performance>
+    <position>Manager</position>
+    <location>Salt Lake City</location>
+  </row>
+  <row>
+    <ssn>500-50-0505</ssn>
+    <lastname>Rodriguez</lastname>
+    <firstname>Jose</firstname>
+    <hiredate>7/16/1998</hiredate>
+    <salary> 150,000.00</salary>
+    <gender>M</gender>
+    <performance>Good</performance>
+    <position>Regional Manager</position>
+    <location>New York City</location>
+  </row>
+  <row>
+    <ssn>555-22-3333</ssn>
+    <lastname>Rubin</lastname>
+    <firstname>Patricia</firstname>
+    <hiredate>7/25/2003</hiredate>
+    <salary> 45,000.00</salary>
+    <gender>F</gender>
+    <performance>Average</performance>
+    <position>Account Representative</position>
+    <location>Boston</location>
+  </row>
+  <row>
+    <ssn>555-56-5555</ssn>
+    <lastname>Charles</lastname>
+    <firstname>Kenneth</firstname>
+    <hiredate>6/18/1998</hiredate>
+    <salary> 40,000.00</salary>
+    <gender>M</gender>
+    <performance>Poor</performance>
+    <position>Account Representative</position>
+    <location>Boston</location>
+  </row>
+  <row>
+    <ssn>612-99-1111</ssn>
+    <lastname>Roberts</lastname>
+    <firstname>Melissa</firstname>
+    <hiredate>5/14/1984</hiredate>
+    <salary> 79,000.00</salary>
+    <gender>F</gender>
+    <performance>Good</performance>
+    <position>Manager</position>
+    <location>Chicago</location>
+  </row>
+  <row>
+    <ssn>625-62-6262</ssn>
+    <lastname>Holmes</lastname>
+    <firstname>Holly</firstname>
+    <hiredate>6/15/1992</hiredate>
+    <salary> 55,000.00</salary>
+    <gender>F</gender>
+    <performance>Average</performance>
+    <position>Manager</position>
+    <location>Miami</location>
+  </row>
+  <row>
+    <ssn>767-74-7373</ssn>
+    <lastname>Martin</lastname>
+    <firstname>William</firstname>
+    <hiredate>8/26/2006</hiredate>
+    <salary> 23,000.00</salary>
+    <gender>M</gender>
+    <performance>Good</performance>
+    <position>Trainee</position>
+    <location>New York City</location>
+  </row>
+  <row>
+    <ssn>776-67-6666</ssn>
+    <lastname>Adamson</lastname>
+    <firstname>David</firstname>
+    <hiredate>10/4/2002</hiredate>
+    <salary> 52,000.00</salary>
+    <gender>M</gender>
+    <performance>Poor</performance>
+    <position>Manager</position>
+    <location>Chicago</location>
+  </row>
+  <row>
+    <ssn>777-78-7777</ssn>
+    <lastname>Marder</lastname>
+    <firstname>Kelly</firstname>
+    <hiredate>9/25/1997</hiredate>
+    <salary> 38,500.00</salary>
+    <gender>F</gender>
+    <performance>Average</performance>
+    <position>Account Representative</position>
+    <location>Chicago</location>
+  </row>
+  <row>
+    <ssn>925-45-7116</ssn>
+    <lastname>Whitehead</lastname>
+    <firstname>David</firstname>
+    <hiredate>7/25/1980</hiredate>
+    <salary> 175,000.00</salary>
+    <gender>M</gender>
+    <performance>Good</performance>
+    <position>Regional Manager</position>
+    <location>Boston</location>
+  </row>
+  <row>
+    <ssn>312-62-1233</ssn>
+    <lastname>Hoff</lastname>
+    <firstname>Mart</firstname>
+    <hiredate>12/6/2020</hiredate>
+    <salary>22,500.00</salary>
+    <gender>M</gender>
+    <performance>Good</performance>
+    <position>CEO</position>
+    <location>Emmen</location>
+  </row>
+  <row>
+    <row>
+      <ssn>121-78-7775</ssn>
+      <lastname>Xander</lastname>
+      <firstname>Test</firstname>
+      <hiredate>9/25/1997</hiredate>
+      <salary>99,500.00</salary>
+      <gender>M</gender>
+      <performance>Good</performance>
+      <position>CEO</position>
+      <location>Emmen</location>
+    </row>
+  </row>
+  <row>
+    <row>
+      <ssn>121-78-7776</ssn>
+      <lastname>Xander</lastname>
+      <firstname>Test</firstname>
+      <hiredate>9/25/1997</hiredate>
+      <salary>99,500.00</salary>
+      <gender>M</gender>
+      <performance>Good</performance>
+      <position>CEO</position>
+      <location>Emmen</location>
+    </row>
+  </row>
+  <row>
+    <row>
+      <ssn>121-78-7779</ssn>
+      <lastname>Xander</lastname>
+      <firstname>Test</firstname>
+      <hiredate>9/25/1997</hiredate>
+      <salary>99,500.00</salary>
+      <gender>M</gender>
+      <performance>Good</performance>
+      <position>CEO</position>
+      <location>Emmen</location>
+    </row>
+  </row>
+</root>
