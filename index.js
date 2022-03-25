@@ -41,6 +41,8 @@ var schema = {
     "properties": {
         "ssn": {
             "type": "string",
+            "maxLength": 12,
+            "minLenght":10,
             "description": "Social security number"
         },
         "lastname": {
@@ -54,6 +56,7 @@ var schema = {
         },
         "hiredate": {
             "type": "string",
+            "format": "date",
             "description": "Date of hiring"
         },
         "salary": {
@@ -136,7 +139,7 @@ app.get('/getUsers', function (req, res) {
 });
 
 // addUser voegt een User toe aan de JSON
-app.put('/addUser', function (req, res) {
+app.post('/addUser', function (req, res) {
     const {
         body
     } = req;
@@ -156,8 +159,6 @@ app.put('/addUser', function (req, res) {
                     // 201 Indicates that the request has succeeded and a new resource has been created as a result.
                     res.status(200).end("New user added");
                 });
-
-                res.end("User: " + JSON.stringify(body) + " added");
             } else {
                 // 404 Not Found The server can not find the requested resource.
                 res.status(404).end("Error reading file");

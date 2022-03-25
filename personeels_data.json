@@ -258,4 +258,14 @@
     "performance": "Good",
     "position": "CEO",
     "location": "Emmen"
+}, {
+    "ssn": "312-62-1233",
+    "lastname": "Hoff",
+    "firstname": "Mart",
+    "hiredate": "2020-06-12",
+    "salary": "22,500.00",
+    "gender": "M",
+    "performance": "Good",
+    "position": "CEO",
+    "location": "Emmen"
 }]
