@@ -2,23 +2,13 @@
 
 const Validator = require('jsonschema').Validator;
 const v = new Validator();
-
 const express = require('express');
 const app = express();
 const PORT = 8080;
-
-var fs = require('fs');
 var xml2js = require('xml2js');
 var parser = new xml2js.Parser()
-
-var xsd = require('libxmljs2-xsd');
-
-const xmlparser = require('express-xml-bodyparser')
-
 const mysql = require('mysql')
 
-app.use(express.json());
-app.use(xmlparser());
 
 app.listen(
     PORT,
@@ -158,7 +148,7 @@ app.post('/addUserJSON', function (req, res) {
                     connection.release() // return the connection to pool
                     if (!err) {
                         // 200 OK Indicates that the request has succeeded.
-                        res.status(200).send("User added");
+                        res.status(200).send("User added" + body);
                     } else {
                         // 404 Not Found The server can not find the requested resource.
                         res.status(404).end(err.sqlMessage);
@@ -214,7 +204,7 @@ app.post('/addUserXML', function (req, res) {
                     connection.release() // return the connection to pool
                     if (!err) {
                         // 200 OK Indicates that the request has succeeded.
-                        res.status(200).send("User added");
+                        res.status(200).send("User added" + body);
                     } else {
                         // 404 Not Found The server can not find the requested resource.
                         res.status(404).end(err);
