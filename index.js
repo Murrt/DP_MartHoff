@@ -112,10 +112,14 @@ app.get('/getUsers', function (req, res) {
                 connection.release() // return the connection to pool
                 if (!err) {
                     // 200 OK Indicates that the request has succeeded.
-                    res.status(200).send(rows);
+                    if (rows !== null) {
+                        res.status(200).send(rows);
+                    } else {
+                        res.status(404).send(rows);
+                    }
                 } else {
                     // 404 Not Found The server can not find the requested resource.
-                    res.status(404).end(err);
+                    res.status(404).end(err.sqlMessage);
                 }
             })
         })
@@ -123,14 +127,14 @@ app.get('/getUsers', function (req, res) {
     } else {
         pool.getConnection((err, connection) => {
             if (err) throw err
-            connection.query('SELECT * from personeelsdata_mart_hoff_goede WHERE SSN = "' + Object.keys(req.query)[0] + '"', (err, rows) => {
+            connection.query('SELECT * from personeelsdata_mart_hoff_goede WHERE SSN = ?', [Object.keys(req.query)[0]], (err, rows) => {
                 connection.release() // return the connection to pool
                 if (!err) {
                     // 200 OK Indicates that the request has succeeded.
                     res.status(200).send(rows);
                 } else {
                     // 404 Not Found The server can not find the requested resource.
-                    res.status(404).end(err);
+                    res.status(404).end(err.sqlMessage);
                 }
             })
         })
@@ -142,7 +146,7 @@ app.post('/addUserJSON', function (req, res) {
     const {
         body
     } = req;
-    if (body !== null) {
+    if (body == null) {
         res.end("Enter SSN");
     } else {
         // valideer de body tegen het JSON schema
@@ -150,16 +154,14 @@ app.post('/addUserJSON', function (req, res) {
             // lees de huidige file in
             pool.getConnection((err, connection) => {
                 if (err) throw err
-                console.log('connected as id ' + connection.threadId)
-                connection.query('INSERT INTO `personeelsdata_mart_hoff_goede` (`SSN`, `lastname`, `firstname`, `hiredate`, `salary`, `gender`, `performance`, `position`, `location`) VALUES ("' + req.body.ssn + '", "' + req.body.lastname + '", "' + req.body.firstname + '", "' + req.body.hiredate + '", "' + req.body.salary + '", "' + req.body.gender + '", "' + req.body.performance + '", "' + req.body.position + '", "' + req.body.location + '");', (err, rows) => {
+                connection.query('INSERT INTO `personeelsdata_mart_hoff_goede` (`SSN`, `lastname`, `firstname`, `hiredate`, `salary`, `gender`, `performance`, `position`, `location`) VALUES (?, ?, ?, ?, ?, ? ,? ,? ,?);', [req.body.ssn, req.body.lastname, req.body.firstname, req.body.hiredate, req.body.salary, req.body.gender, req.body.performance, req.body.position, req.body.location], (err, rows) => {
                     connection.release() // return the connection to pool
                     if (!err) {
                         // 200 OK Indicates that the request has succeeded.
                         res.status(200).send("User added");
                     } else {
                         // 404 Not Found The server can not find the requested resource.
-                        res.status(404).end(err);
-                        console.log(err)
+                        res.status(404).end(err.sqlMessage);
                     }
                 })
             })
@@ -172,14 +174,16 @@ app.delete('/deleteUser', function (req, res) {
         pool.getConnection((err, connection) => {
             if (err) throw err
             // console.log('connected as id ' + connection.threadId)
-            connection.query('DELETE FROM `personeelsdata_mart_hoff_goede` WHERE `personeelsdata_mart_hoff_goede`.`SSN` = ' + Object.keys(req.query)[0] + '', (err, rows) => {
+            connection.query('DELETE FROM `personeelsdata_mart_hoff_goede` WHERE `personeelsdata_mart_hoff_goede`.`SSN` = ?', [Object.keys(req.query)[0]], (err, rows) => {
                 connection.release() // return the connection to pool
                 if (!err) {
                     // 200 OK Indicates that the request has succeeded.
                     res.status(200).send("User deleted");
+                    console.log(Object.keys(req.query)[0]);
+                    console.log(rows);
                 } else {
                     // 204 Not Found The server can not find the requested resource.
-                    res.status(204).end(err);
+                    res.status(204).end(err.sqlMessage);
                     console.log(err)
                 }
             })
@@ -206,7 +210,7 @@ app.post('/addUserXML', function (req, res) {
             pool.getConnection((err, connection) => {
                 if (err) throw err
                 console.log('connected as id ' + connection.threadId)
-                connection.query('INSERT INTO `personeelsdata_mart_hoff_goede` (`SSN`, `lastname`, `firstname`, `hiredate`, `salary`, `gender`, `performance`, `position`, `location`) VALUES ("' + result.row.ssn[0] + '", "' + result.row.lastname[0] + '", "' + result.row.firstname[0] + '", "' + result.row.hiredate[0] + '", "' + result.row.salary[0] + '", "' + result.row.gender[0] + '", "' + result.row.performance[0] + '", "' + result.row.position[0] + '", "' + result.row.location[0] + '");', (err, rows) => {
+                connection.query('INSERT INTO `personeelsdata_mart_hoff_goede` (`SSN`, `lastname`, `firstname`, `hiredate`, `salary`, `gender`, `performance`, `position`, `location`) VALUES (?, ?, ?, ?, ?, ? ,? ,? ,?);', [result.row.ssn[0], result.row.lastname[0], result.row.firstname[0], result.row.hiredate[0], result.row.salary[0], result.row.gender[0], result.row.performance[0], result.row.position[0], result.row.location[0]], (err, rows) => {
                     connection.release() // return the connection to pool
                     if (!err) {
                         // 200 OK Indicates that the request has succeeded.
@@ -214,7 +218,7 @@ app.post('/addUserXML', function (req, res) {
                     } else {
                         // 404 Not Found The server can not find the requested resource.
                         res.status(404).end(err);
-                        console.log(err)
+                        console.log(err.sqlMessage)
                     }
                 })
             })
