@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<root>
+<database name="persooneels_data">
   <row>
     <ssn>000-01-0000</ssn>
     <lastname>Milgrom</lastname>
     <firstname>Patricia</firstname>
     <hiredate>10/1/2004</hiredate>
-    <salary> 57,500.00</salary>
+    <salary> 57500</salary>
     <gender>F</gender>
     <performance>Average</performance>
     <position>Manager</position>
@@ -16,7 +16,7 @@
     <lastname>Adams</lastname>
     <firstname>Sandy</firstname>
     <hiredate>1/15/2001</hiredate>
-    <salary> 19,500.00</salary>
+    <salary> 19500</salary>
     <gender>F</gender>
     <performance>Average</performance>
     <position>Trainee</position>
@@ -27,7 +27,7 @@
     <lastname>Wood</lastname>
     <firstname>Emily</firstname>
     <hiredate>3/12/1997</hiredate>
-    <salary> 69,000.00</salary>
+    <salary> 69000</salary>
     <gender>F</gender>
     <performance>Average</performance>
     <position>Manager</position>
@@ -38,7 +38,7 @@
     <lastname>Foster</lastname>
     <firstname>Harold</firstname>
     <hiredate>8/14/2005</hiredate>
-    <salary> 55,000.00</salary>
+    <salary> 55000</salary>
     <gender>M</gender>
     <performance>Good</performance>
     <position>Account Representative</position>
@@ -49,7 +49,7 @@
     <lastname>Johnson</lastname>
     <firstname>James</firstname>
     <hiredate>5/3/1996</hiredate>
-    <salary> 47,500.00</salary>
+    <salary> 47500</salary>
     <gender>M</gender>
     <performance>Good</performance>
     <position>Account Representative</position>
@@ -60,7 +60,7 @@
     <lastname>Coulter</lastname>
     <firstname>Tracy</firstname>
     <hiredate>2/14/1993</hiredate>
-    <salary> 100,000.00</salary>
+    <salary> 100000</salary>
     <gender></gender>
     <performance>Good</performance>
     <position>Manager</position>
@@ -71,7 +71,7 @@
     <lastname>Marlin</lastname>
     <firstname>Bill</firstname>
     <hiredate>3/28/1977</hiredate>
-    <salary> 125,000.00</salary>
+    <salary> 125000</salary>
     <gender>M</gender>
     <performance></performance>
     <position>Manager</position>
@@ -82,7 +82,7 @@
     <lastname>Smith</lastname>
     <firstname>Mary</firstname>
     <hiredate>1/1/2006</hiredate>
-    <salary> 42,500.00</salary>
+    <salary> 42500</salary>
     <gender>F</gender>
     <performance>Average</performance>
     <position>Account Representative</position>
@@ -93,7 +93,7 @@
     <lastname>Johanson</lastname>
     <firstname>Sandy</firstname>
     <hiredate>6/2/2005</hiredate>
-    <salary> 69,000.00</salary>
+    <salary> 69000</salary>
     <gender>F</gender>
     <performance></performance>
     <position>Account Representative</position>
@@ -104,7 +104,7 @@
     <lastname>Manin</lastname>
     <firstname>Emily</firstname>
     <hiredate>12/1/2000</hiredate>
-    <salary> 49,500.00</salary>
+    <salary> 49500</salary>
     <gender>F</gender>
     <performance>Average</performance>
     <position>Account Representative</position>
@@ -115,7 +115,7 @@
     <lastname>Smith</lastname>
     <firstname>Frank</firstname>
     <hiredate>1/29/1991</hiredate>
-    <salary> 65,000.00</salary>
+    <salary> 65000</salary>
     <gender>M</gender>
     <performance>Good</performance>
     <position>Account Representative</position>
@@ -126,7 +126,7 @@
     <lastname>Brown</lastname>
     <firstname>Marietta</firstname>
     <hiredate>3/7/2001</hiredate>
-    <salary> 18,500.00</salary>
+    <salary> 18500</salary>
     <gender>F</gender>
     <performance>Poor</performance>
     <position>Trainee</position>
@@ -137,7 +137,7 @@
     <lastname>Jones</lastname>
     <firstname>Holly</firstname>
     <hiredate>4/8/1986</hiredate>
-    <salary> 65,000.00</salary>
+    <salary> 65000</salary>
     <gender>F</gender>
     <performance>Good</performance>
     <position>Manager</position>
@@ -148,7 +148,7 @@
     <lastname>Bronson</lastname>
     <firstname>Paul</firstname>
     <hiredate>11/20/2003</hiredate>
-    <salary> 58,000.00</salary>
+    <salary> 58000</salary>
     <gender>M</gender>
     <performance>Good</performance>
     <position>Manager</position>
@@ -159,7 +159,7 @@
     <lastname>Frank</lastname>
     <firstname>Vernon</firstname>
     <hiredate>4/10/1985</hiredate>
-    <salary> 75,000.00</salary>
+    <salary> 75000</salary>
     <gender>M</gender>
     <performance>Good</performance>
     <position>Account Representative</position>
@@ -170,7 +170,7 @@
     <lastname>Webster</lastname>
     <firstname>David</firstname>
     <hiredate>1/29/1991</hiredate>
-    <salary> 58,500.00</salary>
+    <salary> 58500</salary>
     <gender>M</gender>
     <performance>Poor</performance>
     <position>Manager</position>
@@ -181,7 +181,7 @@
     <lastname>Rodriguez</lastname>
     <firstname>Jose</firstname>
     <hiredate>7/16/1998</hiredate>
-    <salary> 150,000.00</salary>
+    <salary> 150000</salary>
     <gender>M</gender>
     <performance>Good</performance>
     <position>Regional Manager</position>
@@ -192,7 +192,7 @@
     <lastname>Rubin</lastname>
     <firstname>Patricia</firstname>
     <hiredate>7/25/2003</hiredate>
-    <salary> 45,000.00</salary>
+    <salary> 45000</salary>
     <gender>F</gender>
     <performance>Average</performance>
     <position>Account Representative</position>
@@ -203,7 +203,7 @@
     <lastname>Charles</lastname>
     <firstname>Kenneth</firstname>
     <hiredate>6/18/1998</hiredate>
-    <salary> 40,000.00</salary>
+    <salary> 40000</salary>
     <gender>M</gender>
     <performance>Poor</performance>
     <position>Account Representative</position>
@@ -214,7 +214,7 @@
     <lastname>Roberts</lastname>
     <firstname>Melissa</firstname>
     <hiredate>5/14/1984</hiredate>
-    <salary> 79,000.00</salary>
+    <salary> 79000</salary>
     <gender>F</gender>
     <performance>Good</performance>
     <position>Manager</position>
@@ -225,7 +225,7 @@
     <lastname>Holmes</lastname>
     <firstname>Holly</firstname>
     <hiredate>6/15/1992</hiredate>
-    <salary> 55,000.00</salary>
+    <salary> 55000</salary>
     <gender>F</gender>
     <performance>Average</performance>
     <position>Manager</position>
@@ -236,7 +236,7 @@
     <lastname>Martin</lastname>
     <firstname>William</firstname>
     <hiredate>8/26/2006</hiredate>
-    <salary> 23,000.00</salary>
+    <salary> 23000</salary>
     <gender>M</gender>
     <performance>Good</performance>
     <position>Trainee</position>
@@ -247,7 +247,7 @@
     <lastname>Adamson</lastname>
     <firstname>David</firstname>
     <hiredate>10/4/2002</hiredate>
-    <salary> 52,000.00</salary>
+    <salary> 52000</salary>
     <gender>M</gender>
     <performance>Poor</performance>
     <position>Manager</position>
@@ -258,7 +258,7 @@
     <lastname>Marder</lastname>
     <firstname>Kelly</firstname>
     <hiredate>9/25/1997</hiredate>
-    <salary> 38,500.00</salary>
+    <salary> 38500</salary>
     <gender>F</gender>
     <performance>Average</performance>
     <position>Account Representative</position>
@@ -269,7 +269,7 @@
     <lastname>Whitehead</lastname>
     <firstname>David</firstname>
     <hiredate>1980-07-25</hiredate>
-    <salary> 175,000.00</salary>
+    <salary> 175000</salary>
     <gender>M</gender>
     <performance>Good</performance>
     <position>Regional Manager</position>
@@ -280,10 +280,10 @@
     <lastname>Hoff</lastname>
     <firstname>Mart</firstname>
     <hiredate>2020-06-12</hiredate>
-    <salary>22,500.00</salary>
+    <salary>22500</salary>
     <gender>M</gender>
     <performance>Good</performance>
     <position>CEO</position>
     <location>Emmen</location>
   </row>
-</root>
+</database>
