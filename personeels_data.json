@@ -54,7 +54,7 @@
     "firstname": "Tracy",
     "hiredate": "2/14/1993",
     "salary": " 100000",
-    "gender": "",
+    "gender": "F",
     "performance": "Good",
     "position": "Manager",
     "location": "Atlanta"
@@ -65,7 +65,7 @@
     "hiredate": "3/28/1977",
     "salary": " 125000",
     "gender": "M",
-    "performance": "",
+    "performance": "M",
     "position": "Manager",
     "location": "Miami"
 }, {
@@ -284,7 +284,7 @@
     "firstname": "Tessa",
     "hiredate": "2020-08-12",
     "salary": "22500",
-    "gender": "G",
+    "gender": "F",
     "performance": "Good",
     "position": "CFO",
     "location": "Klazienaveen"

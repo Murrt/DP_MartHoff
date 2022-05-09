@@ -19,9 +19,6 @@ app.listen(
     () => console.log('Server is live! localhost:/' + PORT)
 );
 
-var fs = require('fs');
-
-
 // sql pool
 
 const pool = mysql.createPool({
@@ -29,7 +26,7 @@ const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'csv_db 9'
+    database: 'DP_api'
 })
 
 
