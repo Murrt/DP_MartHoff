@@ -7,8 +7,12 @@ const app = express();
 const PORT = 8080;
 var xml2js = require('xml2js');
 var parser = new xml2js.Parser()
-const mysql = require('mysql')
+const mysql = require('mysql');
+var xsd = require('libxmljs2-xsd');
+const xmlparser = require('express-xml-bodyparser')
 
+app.use(express.json());
+app.use(xmlparser());
 
 app.listen(
     PORT,
@@ -57,11 +61,15 @@ var schema = {
             "description": "Date of hiring"
         },
         "salary": {
-            "type": "string",
+            "type": "double",
+            "minLength":0,
+            "maxLength":9999999,
             "description": "Current salary"
         },
         "gender": {
             "type": "string",
+            "minLength":0,
+            "maxLength":2,
             "description": "Gender"
         },
         "performance": {
@@ -105,7 +113,7 @@ app.get('/getUsers', function (req, res) {
                     if (rows !== null) {
                         res.status(200).send(rows);
                     } else {
-                        res.status(404).send(rows);
+                        res.status(404).send("Could not find user");
                     }
                 } else {
                     // 404 Not Found The server can not find the requested resource.
@@ -148,7 +156,7 @@ app.post('/addUserJSON', function (req, res) {
                     connection.release() // return the connection to pool
                     if (!err) {
                         // 200 OK Indicates that the request has succeeded.
-                        res.status(200).send("User added" + body);
+                        res.status(200).send("User added, ssn:" + req.body.ssn);
                     } else {
                         // 404 Not Found The server can not find the requested resource.
                         res.status(404).end(err.sqlMessage);
