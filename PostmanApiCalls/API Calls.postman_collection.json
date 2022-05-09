@@ -6,52 +6,31 @@
 	},
 	"item": [
 		{
-			"name": "localhost:8080/getUsers",
+			"name": "get specifieke user",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/getUsers",
+					"raw": "localhost:8080/getUsers?12545",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"getUsers"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "localhost:8080/addUser",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"ssn\": \"312-62-123322\",\r\n    \"lastname\": \"Hoff\",\r\n    \"firstname\": \"Mart\",\r\n    \"hiredate\": \"2020-06-12\",\r\n    \"salary\": \"22,500.00\",\r\n    \"gender\": \"M\",\r\n    \"performance\": \"Good\",\r\n    \"position\": \"CEO\",\r\n    \"location\": \"Emmen\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/addUser",
-					"host": [
-						"localhost"
 					],
-					"port": "8080",
-					"path": [
-						"addUser"
+					"query": [
+						{
+							"key": "12545",
+							"value": null
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "localhost:8080/getUsers?ssn=312-62-1233",
+			"name": "get alle users",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -75,37 +54,40 @@
 			"response": []
 		},
 		{
-			"name": "deleteUserXML?ssn=312-62-1233",
+			"name": "add user JSON",
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ssn\": \"100-01-0000\",\r\n    \"lastname\": \"Maats\",\r\n    \"firstname\": \"Tessa\",\r\n    \"hiredate\": \"2020-08-12\",\r\n    \"salary\": \"22500\",\r\n    \"gender\": \"G\",\r\n    \"performance\": \"Good\",\r\n    \"position\": \"CFO\",\r\n    \"location\": \"Klazienaveen\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:8080/deleteUserXML?ssn=312-62-1233",
+					"raw": "localhost:8080/addUserJSON",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"deleteUserXML"
-					],
-					"query": [
-						{
-							"key": "ssn",
-							"value": "312-62-1233"
-						}
+						"addUserJSON"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "localhost:8080/addUserXML",
+			"name": "add user XML",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " <row>\r\n    <ssn>121-78-7777</ssn>\r\n    <lastname>Xander</lastname>\r\n    <firstname>Test</firstname>\r\n    <hiredate>1997-06-12</hiredate>\r\n    <salary> 99,500.00</salary>\r\n    <gender>M</gender>\r\n    <performance>Good</performance>\r\n    <position>CEO</position>\r\n    <location>Chicago</location>\r\n  </row>",
+					"raw": " <row>\r\n    <ssn>121-78-7771</ssn>\r\n    <lastname>Xander</lastname>\r\n    <firstname>Test</firstname>\r\n    <hiredate>1997-06-12</hiredate>\r\n    <salary> 99500</salary>\r\n    <gender>M</gender>\r\n    <performance>Good</performance>\r\n    <position>CEO</position>\r\n    <location>Chicago</location>\r\n  </row>",
 					"options": {
 						"raw": {
 							"language": "xml"
@@ -126,23 +108,23 @@
 			"response": []
 		},
 		{
-			"name": "localhost:8080/getUserXML",
+			"name": "delete user",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/getUsersXML?ssn=312-62-1233",
+					"raw": "localhost:8080/deleteUser?312-63-1271",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"getUsersXML"
+						"deleteUser"
 					],
 					"query": [
 						{
-							"key": "ssn",
-							"value": "312-62-1233"
+							"key": "312-63-1271",
+							"value": null
 						}
 					]
 				}
