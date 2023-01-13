@@ -1,0 +1,38 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="row">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ssn">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="12" />
+              <xs:minLength value="10" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element type="xs:string" name="lastname" />
+        <xs:element type="xs:string" name="firstname" />
+        <xs:element type="xs:date" name="hiredate" />
+        <xs:element name="salary">
+          <xs:simpleType>
+            <xs:restriction base="xs:double">
+              <xs:minInclusive value="0" />
+              <xs:maxInclusive value="9999999" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="gender" > 
+          <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+            <xs:minLength value="0" />
+          </xs:restriction>
+        </xs:simpleType>
+        </xs:element>
+        <xs:element type="xs:string" name="performance" />
+        <xs:element type="xs:string" name="position" />
+        <xs:element type="xs:string" name="location" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

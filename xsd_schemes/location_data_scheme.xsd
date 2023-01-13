@@ -1,0 +1,83 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="row">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LocationCity">
+            <xs:complexType>
+                <xs:simpleContent>
+                    <xs:extension base="LocationCityype">
+                        <xs:attribute default="0" name="minLenght" type="xs:string"/>
+                        <xs:attribute default="Name of the city" name="description" type="xs:string"/>
+                    </xs:extension>
+                </xs:simpleContent>
+            </xs:complexType>
+        </xs:element>
+        <xs:element  name="address">
+            <xs:complexType>
+                <xs:simpleContent>
+                    <xs:extension base="addressype">
+                        <xs:attribute default="0" name="minLenght" type="xs:string"/>
+                        <xs:attribute default="Street name and number" name="description" type="xs:string"/>
+                    </xs:extension>
+                </xs:simpleContent>
+            </xs:complexType>
+        </xs:element>
+        <xs:element name="state">
+            <xs:complexType>
+                <xs:simpleContent>
+                    <xs:extension base="stateype">
+                        <xs:attribute default="2" name="minLenght" type="xs:string"/>
+                        <xs:attribute default="State" name="description" type="xs:string"/>
+                    </xs:extension>
+                </xs:simpleContent>
+            </xs:complexType>
+        </xs:element>
+        <xs:element name="zipcode">
+            <xs:complexType>
+                <xs:simpleContent>
+                    <xs:extension base="zipcodeype">
+                        <xs:attribute default="zipcode" name="description" type="xs:string"/>
+                    </xs:extension>
+                </xs:simpleContent>
+            </xs:complexType>
+        </xs:element>
+        <xs:element name="officephone">
+            <xs:complexType>
+                <xs:simpleContent>
+                    <xs:extension base="officephoneype">
+                        <xs:attribute default="Telephone number of the office in this location" name="description" type="xs:string"/>
+                    </xs:extension>
+                </xs:simpleContent>
+            </xs:complexType>
+        </xs:element>
+    </xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:simpleType name="LocationCityype">
+<xs:restriction base="xs:string">
+    <xs:maxLength value="255"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="addressype">
+<xs:restriction base="xs:string">
+    <xs:maxLength value="255"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="stateype">
+<xs:restriction base="xs:string">
+    <xs:maxLength value="4"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="zipcodeype">
+<xs:restriction base="xs:string">
+    <xs:minLength value="0"/>
+    <xs:maxLength value="8"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="officephoneype">
+<xs:restriction base="xs:string">
+    <xs:minLength value="6"/>
+    <xs:maxLength value="15"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
