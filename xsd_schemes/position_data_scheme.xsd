@@ -1,0 +1,74 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="row">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="PositionTitle">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="PositionTitletype">
+                                <xs:attribute default="0" name="minLenght" type="xs:string" />
+                                <xs:attribute default="Name of the title" name="description"
+                                    type="xs:string" />
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="education">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="educationtype">
+                                <xs:attribute default="0" name="minLenght" type="xs:string" />
+                                <xs:attribute default="Name of education" name="description"
+                                    type="xs:string" />
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="minSalary">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="minSalarytype">
+                                <xs:attribute
+                                    default="Telephone number of the office in this location"
+                                    name="description" type="xs:string" />
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="maxSalary">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="maxSalarytype">
+                                <xs:attribute
+                                    default="Telephone number of the office in this location"
+                                    name="description" type="xs:string" />
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="PositionTitletype">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="255" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="educationtype">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="255" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="minSalarytype">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="\d{0,999999}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="maxSalarytype">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="\d{0,999999}" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

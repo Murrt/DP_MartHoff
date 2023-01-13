@@ -1,0 +1,34 @@
+<!-- 
+
+    VOORBEELD VOOR ADD USER
+    <row>
+    <ssn>121-78-7771</ssn>
+    <lastname>Xander</lastname>
+    <firstname>Test</firstname>
+    <hiredate>1997-06-12</hiredate>
+    <salary> 99500</salary>
+    <gender>M</gender>
+    <performance>Good</performance>
+    <position>CEO</position>
+    <location>Chicago</location>
+</row>
+
+
+VOORBEELD VOOR ADD LOCATION
+<row>
+    <LocationCity>Klazienaveen</LocationCity>
+    <address>Brugrstaart 4</address>
+    <state>1997-06-12</state>
+    <zipcode>7891AB</zipcode>
+    <officephone> 99500</officephone>
+</row>
+
+VOORBEELD VOOR ADD POSITION
+<row>
+    <PositionTitle>ICT manager</PositionTitle>
+    <education>Informatica</education>
+    <minSalary>1997</minSalary>
+    <maxSalary>78911</maxSalary>
+</row>
+
+ -->

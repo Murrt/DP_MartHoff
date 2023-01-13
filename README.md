@@ -1,35 +1,50 @@
-# api
- Data processing project
+# Data processing Mart Hoff
 
-// versies
-Node v14.16.0
-Visual Studio 2019
-Xammp V3.2.4   
-Windows 10
+#### Waarom NodeJS/Express voor een rest api
 
+Met Express en NodeJS kun je gemakkelijk schaalbare rest api's opzetten. NodeJS is enorm popular onder programmeurs om rest API op te zetten, hierdoor is er enorm veel documentatie beschikbaar. Ook zijn er veel modules beschikbaar gemakkelijk te implementeren zijn, denk hierbij aan;
 
-// NPM Installs  
-npm i express  
-npm i jsonschema  
-npm i xml2js\
-npm i libxmljs2-xsd  
+**Express**, hiermee kan je gemakklijk een web-server opzetten om aan te roepen met HTTP requests.
+**Passport**, dit kan gebruikt worden als middelware voor authenticatoe doeleinden
+**JWT**, ookwel Json Web Token, hiermee kan op een veilige manier data worden verstuurd en geauthenticeert.
+**Socket IO**, veel gebruikt in applicaties om real time messaging applicaties op te zetten.
 
-// Importeer Database
-Start je PHPMySQL database (ik doe dit via XAMMP).
-Klik bovenaan in het menu op import
-Klik op 'Choose File' en browse naar het database mapje in mijn github bestand.
-Hier vind je de te importeren database
+Met Javascript kan ik met **JSON SCHEMA** gemakklijk mijn schema tegen de ingevoerde JSON valideren.
 
 
-// start server  
-node . (in terminal)  
+#### Installatie en gebruik
 
-// Ik heb de api calls die ik gebruik om te testen in een JSON gezet, deze kun je importeren in je PostMan.
+**versies**
 
+* Node v14.16.0
+* Visual Studio 2019
+* Xammp V3.2.4
+* Windows 10
+* Postman
 
-// formateren in VS Code  x 
-nadat een nieuwe row is toegevoegd staat alles in 1 rij, met alt + shift + f kun je het opnieuw mooi formatten om te zien dat het terug netjes is terug gezet.
+**npm installs**
 
-// visualisatie
-Start via XAMMP (of een andere webhost client) een apache server
-browse naar visualisatie.html
+```
+npm i express
+npm i jsonschema
+npm i xml2js
+npm i libxmljs2-xsd
+```
+
+* **Importeer Database**
+  Start je PHPMySQL database (ik doe dit via XAMMP).
+  Klik bovenaan in het menu op import
+  Klik op 'Choose File' en browse naar het database mapje in mijn github bestand.
+  Hier vind je de te importeren database
+* **start server**
+  node . (in terminal) om de rest api server te lanceren, wacht tot je 'Server is live! localhost:/8080' ziet.
+* **Postman**
+  Ik heb de api calls die ik gebruik om te testen in een JSON gezet, deze kun je importeren in je PostMan.
+* **Documentatie API**
+* In Postman kan je hoveren op de map 'Api calls', klik op de drie puntjes en selecteer 'view documentation'
+* **visualisatie**
+  Browse in een gewenste brower naar;
+
+  * {**pad**/visualisatie/visualisatie1.html}
+  * {**pad**/visualisatie/visualisatie2.html}
+  * {**pad**/visualisatie/visualisatie3.html}
