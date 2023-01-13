@@ -5,11 +5,11 @@
 Met Express en NodeJS kun je gemakkelijk schaalbare rest api's opzetten. NodeJS is enorm popular onder programmeurs om rest API op te zetten, hierdoor is er enorm veel documentatie beschikbaar. Ook zijn er veel modules beschikbaar gemakkelijk te implementeren zijn, denk hierbij aan;
 
 **Express**, hiermee kan je gemakklijk een web-server opzetten om aan te roepen met HTTP requests.
-**Passport**, dit kan gebruikt worden als middelware voor authenticatoe doeleinden
+**Passport**, dit kan gebruikt worden als middelware voor authenticatie doeleinden
 **JWT**, ookwel Json Web Token, hiermee kan op een veilige manier data worden verstuurd en geauthenticeert.
 **Socket IO**, veel gebruikt in applicaties om real time messaging applicaties op te zetten.
 
-Met Javascript kan ik met **JSON SCHEMA** gemakklijk mijn schema tegen de ingevoerde JSON valideren.
+Met Javascript kan ik met **JSON SCHEMA** gemakkelijk mijn schema tegen de ingevoerde JSON valideren.
 
 
 #### Installatie en gebruik
@@ -43,7 +43,7 @@ npm i libxmljs2-xsd
 * **Documentatie API**
 * In Postman kan je hoveren op de map 'Api calls', klik op de drie puntjes en selecteer 'view documentation'
 * **visualisatie**
-  Browse in een gewenste brower naar;
+  Browse in een gewenste browser naar;
 
   * {**pad**/visualisatie/visualisatie1.html}
   * {**pad**/visualisatie/visualisatie2.html}
