@@ -2,14 +2,14 @@
 
 #### Waarom NodeJS/Express voor een rest api
 
-Met Express en NodeJS kun je gemakkelijk schaalbare rest api's opzetten. NodeJS is enorm popular onder programmeurs om rest API op te zetten, hierdoor is er enorm veel documentatie beschikbaar. Ook zijn er veel modules beschikbaar gemakkelijk te implementeren zijn, denk hierbij aan;
+Met Express en NodeJS kun je gemakkelijk schaalbare rest api's opzetten. Omdat NodeJS zo enorm popular onder programmeurs is om rest API's op te zetten is er enorm veel documentatie beschikbaar. Ook zijn er veel modules beschikbaar gemakkelijk te implementeren zijn, denk hierbij aan;
 
 **Express**, hiermee kan je gemakklijk een web-server opzetten om aan te roepen met HTTP requests.
 **Passport**, dit kan gebruikt worden als middelware voor authenticatie doeleinden
 **JWT**, ookwel Json Web Token, hiermee kan op een veilige manier data worden verstuurd en geauthenticeert.
 **Socket IO**, veel gebruikt in applicaties om real time messaging applicaties op te zetten.
 
-Met Javascript kan ik met **JSON SCHEMA** gemakkelijk mijn schema tegen de ingevoerde JSON valideren.
+Met Javascript kan ik met **JSON SCHEMA** gemakkelijk mijn schema tegen de ingevoerde JSON valideren. 
 
 
 #### Installatie en gebruik
