@@ -43,6 +43,6 @@ npm i
 * **visualisatie**
   Browse in een gewenste browser naar;
 
-  * {**pad**/visualisatie/visualisatie1.html}
-  * {**pad**/visualisatie/visualisatie2.html}
-  * {**pad**/visualisatie/visualisatie3.html}
+http://localhost:8080/vis1
+http://localhost:8080/vis2
+http://localhost:8080/vis3

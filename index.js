@@ -5,6 +5,7 @@ const v = new Validator();
 const express = require('express');
 const app = express();
 const PORT = 8080;
+var path = require('path');
 var xml2js = require('xml2js');
 var parser = new xml2js.Parser()
 const mysql = require('mysql');
@@ -44,7 +45,7 @@ const pool = mysql.createPool({
 
 
 app.get('/', (req, res) => {
-    res.send('GET request to the homepage')
+    res.send('Welkom')
 })
 
 app.engine('html', require('ejs').renderFile);
@@ -575,25 +576,9 @@ app.post('/addPosition', function (req, res) {
 })
 
 // getAllData haalt alle data op
-app.get('/getAllData', function (req, res) {
-    pool.getConnection((err, connection) => {
-        if (err) throw err
-        // query
-        connection.query('SELECT * FROM `personeelsdata` INNER JOIN locations ON personeelsdata.`LocationID` = locations.`LocationID` INNER JOIN positions ON personeelsdata.`PositionID` = positions.`PositionID`', (err, rows) => {
-            connection.release() // return the connection to pool
-            if (!err) {
-                // 200 OK Indicates that the request has succeeded.
-                if (rows !== null) {
-                    res.status(200).send(rows);
-                } else {
-                    res.status(404).send("No data found");
-                }
-            } else {
-                // 404 Not Found The server can not find the requested resource.
-                res.status(404).end(err.sqlMessage);
-            }
-        })
-    })
+app.get('/getAllUsersXML', function (req, res) {
+    res.contentType('application/xml');
+    res.sendFile(path.join(__dirname, 'personeels_data.xml'));
 });
 
 // getLocationInfo haalt alle data op
