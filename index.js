@@ -8,8 +8,12 @@ const PORT = 8080;
 var xml2js = require('xml2js');
 var parser = new xml2js.Parser()
 const mysql = require('mysql');
-var xsd = require('libxmljs2-xsd');
+// var xsd = require('libxmljs2-xsd');
 const xmlparser = require('express-xml-bodyparser')
+
+const router = express.Router();
+
+
 
 app.use(express.json());
 app.use(xmlparser());
@@ -24,7 +28,7 @@ app.use((req, res, next) => {
 
 app.listen(
     PORT,
-    () => console.log('Server is live! localhost:/' + PORT)
+    () => console.log('Server is live! http://localhost:' + PORT)
 );
 
 // sql pool
@@ -35,8 +39,33 @@ const pool = mysql.createPool({
     user: 'root',
     password: '',
     database: 'dp_mart_hoff',
-    port: 4306
+    port: 3306
 })
+
+
+app.get('/', (req, res) => {
+    res.send('GET request to the homepage')
+})
+
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
+app.get('/vis1', function (req, res) {
+    res.render('visualisatie1');
+});
+
+
+app.get('/vis2', function (req, res) {
+    res.render('visualisatie2');
+});
+
+
+app.get('/vis3', function (req, res) {
+    res.render('visualisatie3');
+});
+
+module.exports = router;
+
 
 
 // Schema waarmee we gaan valideren of de ingevoerde JSON correct is.

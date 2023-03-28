@@ -25,10 +25,8 @@ Met Javascript kan ik met **JSON SCHEMA** gemakkelijk mijn schema tegen de ingev
 **npm installs**
 
 ```
-npm i express
-npm i jsonschema
-npm i xml2js
-npm i libxmljs2-xsd
+npm i 
+
 ```
 
 * **Importeer Database**

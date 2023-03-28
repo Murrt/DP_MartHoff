@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:4306
--- Generation Time: Jan 13, 2023 at 02:50 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- Host: 127.0.0.1
+-- Generation Time: Mar 28, 2023 at 03:51 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `dp_mart_hoff`
 --
+CREATE DATABASE IF NOT EXISTS `dp_mart_hoff` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `dp_mart_hoff`;
 
 -- --------------------------------------------------------
 
@@ -34,7 +36,7 @@ CREATE TABLE `locations` (
   `state` varchar(5) DEFAULT NULL,
   `zipcode` varchar(7) DEFAULT NULL,
   `officephone` varchar(13) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `locations`
@@ -68,7 +70,7 @@ CREATE TABLE `personeelsdata` (
   `location` varchar(999) DEFAULT NULL,
   `PositionID` int(11) NOT NULL,
   `LocationID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `personeelsdata`
@@ -106,7 +108,7 @@ CREATE TABLE `positions` (
   `education` varchar(30) DEFAULT NULL,
   `minSalary` varchar(9) DEFAULT NULL,
   `maxSalary` varchar(9) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `positions`
