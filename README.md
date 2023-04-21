@@ -12,7 +12,10 @@ Met Express en NodeJS kun je gemakkelijk schaalbare rest api's opzetten. Omdat N
 Met Javascript kan ik met **JSON SCHEMA** gemakkelijk mijn schema tegen de ingevoerde JSON valideren. 
 
 
-#### Installatie en gebruik
+
+
+
+# Installatie en gebruik
 
 **versies**
 
@@ -22,27 +25,49 @@ Met Javascript kan ik met **JSON SCHEMA** gemakkelijk mijn schema tegen de ingev
 * Windows 10
 * Postman
 
-**npm installs**
+**1`)` npm installs**
 
+Run het volgende command in de terminal:
 ```
 npm i 
-
 ```
 
-* **Importeer Database**
-  Start je PHPMySQL database (ik doe dit via XAMMP).
-  Klik bovenaan in het menu op import
-  Klik op 'Choose File' en browse naar het database mapje in mijn github bestand.
-  Hier vind je de te importeren database
-* **start server**
-  node . (in terminal) om de rest api server te lanceren, wacht tot je 'Server is live! localhost:/8080' ziet.
-* **Postman**
-  Ik heb de api calls die ik gebruik om te testen in een JSON gezet, deze kun je importeren in je PostMan.
-* **Documentatie API**
-* In Postman kan je hoveren op de map 'Api calls', klik op de drie puntjes en selecteer 'view documentation'
-* **visualisatie**
-  Browse in een gewenste browser naar;
+Hiermee worden alle dependencies geinstalleerd die nodig zijn om de rest api te laten werken.
 
-http://localhost:8080/vis1
-http://localhost:8080/vis2
-http://localhost:8080/vis3
+**2`)` Importeer Database**
+
+  * Start je PHPMySQL database (ik doe dit via XAMMP).
+  * Klik bovenaan in het menu op import
+  * Klik op 'Choose File' en browse naar het database mapje in mijn github bestand.
+  * Hier vind je de te importeren database
+
+**3`)` start server**
+
+run het volgende commando in de terminal:
+
+  ```
+  node . 
+  ```
+ * de server is gelanceerd wanneer je 'Server is live! localhost:/8080' ziet.
+
+**4`)` Postman**
+
+* Ik heb de api calls die ik gebruik om te testen in een JSON gezet, deze kun je importeren in je PostMan.
+
+**5`)` Documentatie API**
+
+* In Postman kan je hoveren op de map 'Api calls', klik op de drie puntjes en selecteer 'view documentation'
+
+**6`)` visualisatie**
+
+Browse in een gewenste browser naar;
+Voor XML visualatie;
+* http://localhost:8080/visualisatie1
+
+Voor JSON visualisatie;
+* http://localhost:8080/visualisatie2
+
+
+
+Visualisatie aanpassen
+Api is niet restfull

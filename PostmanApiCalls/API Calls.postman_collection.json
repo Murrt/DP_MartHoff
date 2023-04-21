@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "6806659f-d652-4844-a6f4-06088143bc1a",
-		"name": "API Calls",
+		"_postman_id": "05688e41-115f-45ab-bc5b-82233ad3f1fb",
+		"name": "API calls DP",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "20033069"
 	},
@@ -12,13 +12,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/getUsers?000-01-0000",
+					"raw": "localhost:8080/Users?000-01-0000",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"getUsers"
+						"Users"
 					],
 					"query": [
 						{
@@ -32,7 +32,42 @@
 			"response": []
 		},
 		{
-			"name": "add user XML/JSON",
+			"name": "add user XML",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "data-type",
+						"value": "XML",
+						"description": "Data type JSON of XML",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<row>\r\n    <ssn>121-78-7776</ssn>\r\n    <lastname>Mert</lastname>\r\n    <firstname>Hoff</firstname>\r\n    <hiredate>1997-06-12</hiredate>\r\n    <salary> 99500</salary>\r\n    <gender>M</gender>\r\n    <performance>Good</performance>\r\n    <position>CEO</position>\r\n    <location>Chicago</location>\r\n</row>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/User",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"User"
+					]
+				},
+				"description": "User post endpoint dat XML or JSON format user details accepteerd.\n\nVergeet het data-type niet te setten in de header!\n\nvoorbeeld JSON;\n\n{ \"ssn\": \"100-01-0005\", \"lastname\": \"Maats\", \"firstname\": \"Tessa\", \"hiredate\": \"2020-08-12\", \"salary\": \"22500\", \"gender\": \"G\", \"performance\": \"Good\", \"position\": \"CFO\", \"location\": \"Klazienaveen\"}\n\nvoorbeeld XML\n\nXML kan niet worden geplakt in Postman markdown. Voorbeeld staat in de example.xml file."
+			},
+			"response": []
+		},
+		{
+			"name": "add user JSON",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -45,21 +80,21 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "<row>\r\n    <ssn>121-78-7771</ssn>\r\n    <lastname>Mert</lastname>\r\n    <firstname>Hoff</firstname>\r\n    <hiredate>1997-06-12</hiredate>\r\n    <salary> 99500</salary>\r\n    <gender>M</gender>\r\n    <performance>Good</performance>\r\n    <position>CEO</position>\r\n    <location>Chicago</location>\r\n</row>\r\n",
+					"raw": "{\r\n    \"SSN\": \"000-01-0000\",\r\n    \"lastname\": \"Milgrom\",\r\n    \"firstname\": \"Patricia\",\r\n    \"hiredate\": \"10/1/2004\",\r\n    \"salary\": \"57500.00 \",\r\n    \"gender\": \"F\",\r\n    \"performance\": \"Average\",\r\n    \"position\": \"Manager\",\r\n    \"location\": \"Boston\",\r\n    \"PositionID\": 2,\r\n    \"LocationID\": 2\r\n}",
 					"options": {
 						"raw": {
-							"language": "xml"
+							"language": "json"
 						}
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/addUser",
+					"raw": "localhost:8080/User",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"addUser"
+						"User"
 					]
 				},
 				"description": "User post endpoint dat XML or JSON format user details accepteerd.\n\nVergeet het data-type niet te setten in de header!\n\nvoorbeeld JSON;\n\n{ \"ssn\": \"100-01-0005\", \"lastname\": \"Maats\", \"firstname\": \"Tessa\", \"hiredate\": \"2020-08-12\", \"salary\": \"22500\", \"gender\": \"G\", \"performance\": \"Good\", \"position\": \"CFO\", \"location\": \"Klazienaveen\"}\n\nvoorbeeld XML\n\nXML kan niet worden geplakt in Postman markdown. Voorbeeld staat in de example.xml file."
@@ -72,13 +107,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/deleteUser?121-78-7771",
+					"raw": "localhost:8080/User?121-78-7771",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"deleteUser"
+						"User"
 					],
 					"query": [
 						{
@@ -97,13 +132,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/getLocation?Los angeles",
+					"raw": "localhost:8080/Location?Los angeles",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"getLocation"
+						"Location"
 					],
 					"query": [
 						{
@@ -138,13 +173,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/addLocation",
+					"raw": "localhost:8080/Location",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"addLocation"
+						"Location"
 					]
 				},
 				"description": "Location post endpoint die XML or JSON formats accepteert.\n\nVergeet het data-type niet te setten in de header!\n\nvoorbeeld JSON;\n\n```\n{\"LocationCity\": \"Los Angeles\",        \"address\": \"1400 Main St\",        \"state\": \"CA\",        \"zipcode\": \"94235\",        \"officephone\": \"(705)639-0227\"    }\n\n```\n\nvoorbeeld XML\n\nXML kan niet worden geplakt in Postman markdown. Voorbeeld staat in de example.xml file."
@@ -157,13 +192,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/getPosition",
+					"raw": "localhost:8080/Position",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"getPosition"
+						"Position"
 					]
 				},
 				"description": "Get user position\n\nom een specifieke user op te halen voel Position Title in na de '?' in de link.\n\nVoorbeeld; localhost:8080/getPosition?Docent\n\nOm alle user op te halen; localhost:8080/getPosition\n\nAls er geen positie gevonden word met die positie komt er 'No position found' terug."
@@ -192,35 +227,16 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/addPosition",
+					"raw": "localhost:8080/Position",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"addPosition"
+						"Position"
 					]
 				},
 				"description": "Position post endpoint die XML or JSON format accepteert.\n\nVergeet het data-type niet te setten in de header!\n\nexample JSON;\n\n```\n{\n  \"PositionTitle\": \"Manager\",\n  \"education\": \"Marketing\",\n  \"minSalary\": 10,\n  \"maxSalary\": 29\n}\n\n```\n\nvoorbeeld XML:\n\nXML kan niet worden geplakt in Postman markdown. Voorbeeld staat in de example.xml file.\n\nAls de positie al reeds geregistreerd is komt er 'Position already registered' terug."
-			},
-			"response": []
-		},
-		{
-			"name": "get all data",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/getAllData",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"getAllData"
-					]
-				},
-				"description": "Get all data endpoint\n\nIn deze get call voegen we alle data samen."
 			},
 			"response": []
 		}

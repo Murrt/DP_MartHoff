@@ -13,14 +13,13 @@
       .then((res) => {
         let newData = { 'info': {} };
         let newData_colors = { 'colors': {} };
-        console.log(res)
         Object.entries(res).forEach((entry) => {
           const [key, value] = entry;
           newData.info[value.location] = value.employee_count;
         });
 
         // de dimenties zetten
-        var width = 650
+        var width = 950
         height = 650
         margin = 60
 
@@ -60,7 +59,7 @@
           .attr('fill', function (d) { return (color(d.data.key)) })
           .attr("stroke", "white")
           .style("stroke-width", "2px")
-          .style("opacity", 0.7)
+          .style("opacity", 0.85)
 
         svg
           .selectAll('allPolylines')
@@ -84,7 +83,7 @@
           .data(data_ready)
           .enter()
           .append('text')
-          .text(function (d) { console.log(d.data.key); return d.data.key })
+          .text(function (d) { return d.data.key + " aantal: " + d.data.value })
           .attr('transform', function (d) {
             var pos = outerArc.centroid(d);
             var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2

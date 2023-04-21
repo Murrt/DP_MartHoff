@@ -9,12 +9,10 @@ var path = require('path');
 var xml2js = require('xml2js');
 var parser = new xml2js.Parser()
 const mysql = require('mysql');
-// var xsd = require('libxmljs2-xsd');
+var xsd = require('libxmljs2-xsd');
 const xmlparser = require('express-xml-bodyparser')
 
 const router = express.Router();
-
-
 
 app.use(express.json());
 app.use(xmlparser());
@@ -45,24 +43,20 @@ const pool = mysql.createPool({
 
 
 app.get('/', (req, res) => {
-    res.send('Welkom')
+    res.render('menu');
 })
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-app.get('/vis1', function (req, res) {
+
+// Routing naar de verschillende pagina's
+app.get('/visualisatie1', function (req, res) {
     res.render('visualisatie1');
 });
 
-
-app.get('/vis2', function (req, res) {
+app.get('/visualisatie2', function (req, res) {
     res.render('visualisatie2');
-});
-
-
-app.get('/vis3', function (req, res) {
-    res.render('visualisatie3');
 });
 
 module.exports = router;
@@ -71,6 +65,8 @@ module.exports = router;
 
 // Schema waarmee we gaan valideren of de ingevoerde JSON correct is.
 
+
+// User Json schema
 var UserJSONschema = {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
@@ -133,6 +129,7 @@ var UserJSONschema = {
     ]
 };
 
+// Location Json schema
 var LocationJSONschema = {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
@@ -177,6 +174,8 @@ var LocationJSONschema = {
     ]
 };
 
+
+// Position Json schema
 var PositionJSONschema = {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
@@ -217,7 +216,7 @@ var PositionJSONschema = {
 // getUsers haalt alle users op of 1 specefieke
 
 // Als je de query leegt laat haalt hij alle users op.
-app.get('/getUsers', function (req, res) {
+app.get('/Users', function (req, res) {
     if (Object.keys(req.query)[0] == null) {
         pool.getConnection((err, connection) => {
             if (err) throw err
@@ -256,7 +255,7 @@ app.get('/getUsers', function (req, res) {
 });
 
 // addUser voegt een User toe 
-app.post('/addUser', function (req, res) {
+app.post('/User', function (req, res) {
     body = req.rawBody;
     // Invoer data type XML
     if (req.get('data-type') == 'XML') {
@@ -278,8 +277,8 @@ app.post('/addUser', function (req, res) {
                             res.status(200).send("User added, ssn:" + result.row.ssn[0]);
                         } else {
                             // 404 Not Found The server can not find the requested resource.
-                            res.status(404).end(err);
                             console.log(err.sqlMessage)
+                            res.status(404).end(err.sqlMessage);
                         }
                     })
                 })
@@ -316,14 +315,13 @@ app.post('/addUser', function (req, res) {
 
 
 // Delete user endpoint 
-app.delete('/deleteUser', function (req, res) {
+app.delete('/User', function (req, res) {
     // check of ssn is ingevult
     if (Object.keys(req.query)[0] !== null) {
         pool.getConnection((err, connection) => {
             connection.query('SELECT * FROM `personeelsdata` WHERE `personeelsdata`.`SSN` = ?', [Object.keys(req.query)[0]], (err, rows) => {
                 if (!err) {
                     if (rows.length != 0) {
-                        console.log(rows)
                         connection.query('DELETE FROM `personeelsdata` WHERE `personeelsdata`.`SSN` = ?', [Object.keys(req.query)[0]], (error, rows) => {
                             connection.release() // return the connection to pool
                             if (!error) {
@@ -352,7 +350,7 @@ app.delete('/deleteUser', function (req, res) {
 // get Locations haalt alle locations op of 1 specifieke
 
 // Als je de query leegt laat haalt hij alle locations op.
-app.get('/getLocation', function (req, res) {
+app.get('/Location', function (req, res) {
     if (Object.keys(req.query)[0] == null) {
         pool.getConnection((err, connection) => {
             if (err) throw err
@@ -392,7 +390,7 @@ app.get('/getLocation', function (req, res) {
 
 // get Positions haalt alle posities op of 1 specifieke
 // Als je de query leegt laat haalt hij alle positions op.
-app.get('/getPosition', function (req, res) {
+app.get('/Position', function (req, res) {
     if (Object.keys(req.query)[0] == null) {
         pool.getConnection((err, connection) => {
             if (err) throw err
@@ -434,7 +432,7 @@ app.get('/getPosition', function (req, res) {
 });
 
 // addLocation voegt een Location toe 
-app.post('/addLocation', function (req, res) {
+app.post('/Location', function (req, res) {
     body = req.rawBody;
     // Invoer data type XML
     if (req.get('data-type') == 'XML') {
@@ -455,7 +453,7 @@ app.post('/addLocation', function (req, res) {
                             res.status(200).send("Location added added: " + result.row.LocationCity[0]);
                         } else {
                             // 404 Not Found The server can not find the requested resource.
-                            res.status(404).end(err);
+                            res.status(404).end(err.sqlMessage);
                         }
                     })
                 })
@@ -497,7 +495,7 @@ app.post('/addLocation', function (req, res) {
 
 
 // addPosition voegt een position toe 
-app.post('/addPosition', function (req, res) {
+app.post('/Position', function (req, res) {
     body = req.rawBody;
 
     pool.getConnection((err, connection) => {
@@ -524,7 +522,7 @@ app.post('/addPosition', function (req, res) {
                                             res.status(200).send("Position added, " + result.row.PositionTitle[0]);
                                         } else {
                                             // 404 Not Found The server can not find the requested resource.
-                                            res.status(404).end(err);
+                                            res.status(404).end(err.sqlMessage);
                                         }
                                     })
                                 })
