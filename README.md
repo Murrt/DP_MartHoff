@@ -54,11 +54,14 @@ run het volgende commando in de terminal:
 
 **4) Postman**
 
-* Ik heb de api calls die ik gebruik om te testen in een JSON gezet, deze kun je importeren in je PostMan.
+* Ik heb de api calls die ik gebruik om te testen in een JSON map 'PostmanAPiCalls' gezet
+* deze kun je importeren in PostMan door linksbovenaan op 'importeren' te klikken. En de json erin te slepen.
+
 
 **5) Documentatie API**
 
 * In Postman kan je hoveren op de map 'Api calls', klik op de drie puntjes en selecteer 'view documentation'
+* Hier vind je de documentatie van de API calls die ik heb gemaakt.
 
 **6) visualisatie**
 
@@ -68,8 +71,3 @@ Voor XML visualatie;
 
 Voor JSON visualisatie;
 * http://localhost:8080/visualisatie2
-
-
-
-Visualisatie aanpassen
-Api is niet restfull
