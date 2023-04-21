@@ -13,8 +13,6 @@ Met Javascript kan ik met **JSON SCHEMA** gemakkelijk mijn schema tegen de ingev
 
 
 
-
-
 # Installatie en gebruik
 
 **versies**
@@ -25,7 +23,7 @@ Met Javascript kan ik met **JSON SCHEMA** gemakkelijk mijn schema tegen de ingev
 * Windows 10
 * Postman
 
-**1`)` npm installs**
+**1) npm installs**
 
 Run het volgende command in de terminal:
 ```
@@ -34,14 +32,14 @@ npm i
 
 Hiermee worden alle dependencies geinstalleerd die nodig zijn om de rest api te laten werken.
 
-**2`)` Importeer Database**
+**2) Importeer Database**
 
   * Start je PHPMySQL database (ik doe dit via XAMMP).
   * Klik bovenaan in het menu op import
   * Klik op 'Choose File' en browse naar het database mapje in mijn github bestand.
   * Hier vind je de te importeren database
 
-**3`)` start server**
+**3) start server**
 
 run het volgende commando in de terminal:
 
@@ -50,15 +48,15 @@ run het volgende commando in de terminal:
   ```
  * de server is gelanceerd wanneer je 'Server is live! localhost:/8080' ziet.
 
-**4`)` Postman**
+**4) Postman**
 
 * Ik heb de api calls die ik gebruik om te testen in een JSON gezet, deze kun je importeren in je PostMan.
 
-**5`)` Documentatie API**
+**5) Documentatie API**
 
 * In Postman kan je hoveren op de map 'Api calls', klik op de drie puntjes en selecteer 'view documentation'
 
-**6`)` visualisatie**
+**6) visualisatie**
 
 Browse in een gewenste browser naar;
 Voor XML visualatie;
