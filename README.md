@@ -27,6 +27,7 @@ Met Javascript kan ik met **JSON SCHEMA** gemakkelijk mijn schema tegen de ingev
 
 Run het volgende command in de terminal:
 ```
+cd uw/pad/DP_Mart_Hoff/
 npm i 
 ```
 
@@ -35,15 +36,18 @@ Hiermee worden alle dependencies geinstalleerd die nodig zijn om de rest api te 
 **2) Importeer Database**
 
   * Start je PHPMySQL database (ik doe dit via XAMMP).
+  * Maak een nieuwe database aan met de naam 'dp_mart_hoff'
   * Klik bovenaan in het menu op import
   * Klik op 'Choose File' en browse naar het database mapje in mijn github bestand.
   * Hier vind je de te importeren database
+  * Check of de jusite port is geselecteerd in de index.js op regel: 41, momenteel staat deze op 3306.
 
 **3) start server**
 
 run het volgende commando in de terminal:
 
   ```
+  cd uw/pad/DP_Mart_Hoff/
   node . 
   ```
  * de server is gelanceerd wanneer je 'Server is live! localhost:/8080' ziet.

@@ -213,7 +213,7 @@ var PositionJSONschema = {
     ]
 };
 
-// getUsers haalt alle users op of 1 specefieke
+// Get Users haalt alle users op of 1 specefieke
 
 // Als je de query leegt laat haalt hij alle users op.
 app.get('/Users', function (req, res) {
@@ -254,7 +254,7 @@ app.get('/Users', function (req, res) {
     }
 });
 
-// addUser voegt een User toe 
+// Post User voegt een User toe 
 app.post('/User', function (req, res) {
     body = req.rawBody;
     // Invoer data type XML
@@ -289,8 +289,11 @@ app.post('/User', function (req, res) {
         });
         // Invoer data type JSON
     } else if (req.get('data-type') == 'JSON') {
+        console.log('test');
         // valideer de body tegen het JSON schema
-        user_validation = v.validate(req.body, UserJSONschema)
+        user_validation = v.validate(req.body, UserJSONschema);
+
+        console.log(user_validation['errors']);
         if (user_validation['errors'].length == 0) {
             // lees de huidige file in
             pool.getConnection((err, connection) => {
@@ -306,6 +309,9 @@ app.post('/User', function (req, res) {
                     }
                 })
             })
+        } else {
+            // 400 Bad Request The request could not be understood by the server due to incorrect syntax. The client SHOULD NOT repeat the request without modifications.
+            res.status(400).end("JSON is incorrect");
         }
     } else {
         // 400 Bad Request The request could not be understood by the server due to incorrect syntax. The client SHOULD NOT repeat the request without modifications.
@@ -431,7 +437,7 @@ app.get('/Position', function (req, res) {
     }
 });
 
-// addLocation voegt een Location toe 
+// Post Location voegt een Location toe 
 app.post('/Location', function (req, res) {
     body = req.rawBody;
     // Invoer data type XML
@@ -494,7 +500,7 @@ app.post('/Location', function (req, res) {
 
 
 
-// addPosition voegt een position toe 
+// Post Position voegt een position toe 
 app.post('/Position', function (req, res) {
     body = req.rawBody;
 
