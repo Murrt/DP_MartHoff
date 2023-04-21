@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2023 at 03:51 PM
+-- Generation Time: Apr 21, 2023 at 08:36 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `dp_mart_hoff`
 --
-CREATE DATABASE IF NOT EXISTS `dp_mart_hoff` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `dp_mart_hoff`;
 
 -- --------------------------------------------------------
 
@@ -79,6 +77,7 @@ CREATE TABLE `personeelsdata` (
 INSERT INTO `personeelsdata` (`SSN`, `lastname`, `firstname`, `hiredate`, `salary`, `gender`, `performance`, `position`, `location`, `PositionID`, `LocationID`) VALUES
 ('000-01-0000', 'Milgrom', 'Patricia', '10/1/2004', '57500.00 ', 'F', 'Average', 'Manager', 'Boston', 2, 2),
 ('000-02-2222', 'Adams', 'Sandy', '1/15/2001', '19500.00 ', 'F', 'Average', 'Trainee', 'Atlanta', 1, 5),
+('121-78-7771', 'Mert', 'Hoff', '1997-06-12', ' 99500', 'M', 'Good', 'CEO', 'Chicago', 0, 0),
 ('333-34-3333', 'Manin', 'Emily', '12/1/2000', '49500.00 ', 'F', 'Average', 'Account Representative', 'Boston', 1, 5),
 ('333-43-4444', 'Smith', 'Frank', '1/29/1991', '65000.00 ', 'M', 'Good', 'Account Representative', 'Atlanta', 6, 2),
 ('333-66-1234', 'Brown', 'Marietta', '3/7/2001', '18500.00 ', 'F', 'Poor', 'Trainee', 'Atlanta', 5, 0),
@@ -131,7 +130,8 @@ INSERT INTO `positions` (`PositionID`, `PositionTitle`, `education`, `minSalary`
 -- Indexes for table `locations`
 --
 ALTER TABLE `locations`
-  ADD PRIMARY KEY (`LocationID`);
+  ADD PRIMARY KEY (`LocationID`),
+  ADD UNIQUE KEY `address` (`address`);
 
 --
 -- Indexes for table `personeelsdata`
@@ -153,7 +153,7 @@ ALTER TABLE `positions`
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `LocationID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `LocationID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `positions`
