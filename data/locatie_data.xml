@@ -1,0 +1,66 @@
+<locations>
+  <location>
+    <locationID>1</locationID>
+    <locationcity>Atlanta</locationcity>
+    <address>450 Peachtree Rd</address>
+    <state>GA</state>
+    <zipcode>30316</zipcode>
+    <officephone>(404)333-5555</officephone>
+  </location>
+  <location>
+    <locationID>2</locationID>
+    <locationcity>Boston</locationcity>
+    <address>3 Commons Blvd</address>
+    <state>MA</state>
+    <zipcode>02190</zipcode>
+    <officephone>(617)123-4444</officephone>
+  </location>
+  <location>
+    <locationID>3</locationID>
+    <locationcity>Chicago</locationcity>
+    <address>500 Loop Highway</address>
+    <state>IL</state>
+    <zipcode>60620</zipcode>
+    <officephone>(312)444-6666</officephone>
+  </location>
+  <location>
+    <locationID>4</locationID>
+    <locationcity>Miami</locationcity>
+    <address>210 Biscayne Blvd</address>
+    <state>FL</state>
+    <zipcode>33103</zipcode>
+    <officephone>(305)787-9999</officephone>
+  </location>
+  <location>
+    <locationID>5</locationID>
+    <locationcity>New York City</locationcity>
+    <address>1650 Washington Blvd</address>
+    <state>NY</state>
+    <zipcode>15648</zipcode>
+    <officephone>(518)256-3100</officephone>
+  </location>
+  <location>
+    <locationID>6</locationID>
+    <locationcity>Denver</locationcity>
+    <address>312 Mount View Dr</address>
+    <state>CO</state>
+    <zipcode>54657</zipcode>
+    <officephone>(205)607-5289</officephone>
+  </location>
+  <location>
+    <locationID>7</locationID>
+    <locationcity>Salt Lake City</locationcity>
+    <address>316 S. State St</address>
+    <state>UT</state>
+    <zipcode>84125</zipcode>
+    <officephone>(801)459-6652</officephone>
+  </location>
+  <location>
+    <locationID>8</locationID>
+    <locationcity>Los Angeles</locationcity>
+    <address>1400 Main St</address>
+    <state>CA</state>
+    <zipcode>94235</zipcode>
+    <officephone>(705)639-0227</officephone>
+  </location>
+</locations>

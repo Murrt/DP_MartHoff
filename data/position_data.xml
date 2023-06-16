@@ -1,0 +1,30 @@
+<positions>
+  <position>
+    <positionID>1</positionID>
+    <positiontitle>Account Representative</positiontitle>
+    <educationrequired>4 year degree</educationrequired>
+    <minsalary>$25,000.00</minsalary>
+    <maxsalary>$75,000.00</maxsalary>
+  </position>
+  <position>
+    <positionID>2</positionID>
+    <positiontitle>Manager</positiontitle>
+    <educationrequired>4 year degree</educationrequired>
+    <minsalary>$50,000.00</minsalary>
+    <maxsalary>$150,000.00</maxsalary>
+  </position>
+  <position>
+    <positionID>3</positionID>
+    <positiontitle>Trainee</positiontitle>
+    <educationrequired>2 year degree</educationrequired>
+    <minsalary>$18,000.00</minsalary>
+    <maxsalary>$25,000.00</maxsalary>
+  </position>
+  <position>
+    <positionID>4</positionID>
+    <positiontitle>Regional Manager</positiontitle>
+    <educationrequired>6 year degree</educationrequired>
+    <minsalary>$100,000.00</minsalary>
+    <maxsalary>$250,000.00</maxsalary>
+  </position>
+</positions>

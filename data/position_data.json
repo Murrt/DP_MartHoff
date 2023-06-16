@@ -1,0 +1,31 @@
+[
+    {
+      "positionID": 1,
+      "positiontitle": "Account Representative",
+      "educationrequired": "4 year degree",
+      "minsalary": "$25,000.00",
+      "maxsalary": "$75,000.00"
+    },
+    {
+      "positionID": 2,
+      "positiontitle": "Manager",
+      "educationrequired": "4 year degree",
+      "minsalary": "$50,000.00",
+      "maxsalary": "$150,000.00"
+    },
+    {
+      "positionID": 3,
+      "positiontitle": "Trainee",
+      "educationrequired": "2 year degree",
+      "minsalary": "$18,000.00",
+      "maxsalary": "$25,000.00"
+    },
+    {
+      "positionID": 4,
+      "positiontitle": "Regional Manager",
+      "educationrequired": "6 year degree",
+      "minsalary": "$100,000.00",
+      "maxsalary": "$250,000.00"
+    }
+  ]
+  

@@ -1,0 +1,67 @@
+[
+    {
+      "locationID": 1,
+      "locationcity": "Atlanta",
+      "address": "450 Peachtree Rd",
+      "state": "GA",
+      "zipcode": 30316,
+      "officephone": "(404)333-5555"
+    },
+    {
+      "locationID": 2,
+      "locationcity": "Boston",
+      "address": "3 Commons Blvd",
+      "state": "MA",
+      "zipcode": 12190,
+      "officephone": "(617)123-4444"
+    },
+    {
+      "locationID": 3,
+      "locationcity": "Chicago",
+      "address": "500 Loop Highway",
+      "state": "IL",
+      "zipcode": 60620,
+      "officephone": "(312)444-6666"
+    },
+    {
+      "locationID": 4,
+      "locationcity": "Miami",
+      "address": "210 Biscayne Blvd",
+      "state": "FL",
+      "zipcode": 33103,
+      "officephone": "(305)787-9999"
+    },
+    {
+      "locationID": 5,
+      "locationcity": "New York City",
+      "address": "1650 Washington Blvd",
+      "state": "NY",
+      "zipcode": 15648,
+      "officephone": "(518)256-3100"
+    },
+    {
+      "locationID": 6,
+      "locationcity": "Denver",
+      "address": "312 Mount View Dr",
+      "state": "CO",
+      "zipcode": 54657,
+      "officephone": "(205)607-5289"
+    },
+    {
+      "locationID": 7,
+      "locationcity": "Salt Lake City",
+      "address": "316 S. State St",
+      "state": "UT",
+      "zipcode": 84125,
+      "officephone": "(801)459-6652"
+    },
+    {
+      "locationID": 8,
+      "locationcity": "Los Angeles",
+      "address": "1400 Main St",
+      "state": "CA",
+      "zipcode": 94235,
+      "officephone": "(705)639-0227"
+    }
+  ]
+  
