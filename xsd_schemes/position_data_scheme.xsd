@@ -19,7 +19,7 @@
                         <xs:simpleContent>
                             <xs:extension base="educationtype">
                                 <xs:attribute default="0" name="minLenght" type="xs:string" />
-                                <xs:attribute default="Name of education" name="description"
+                                <xs:attribute default="Name of education" name="education"
                                     type="xs:string" />
                             </xs:extension>
                         </xs:simpleContent>

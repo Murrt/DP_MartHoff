@@ -30,8 +30,6 @@
         </xs:simpleType>
         </xs:element>
         <xs:element type="xs:string" name="performance" />
-        <xs:element type="xs:string" name="position" />
-        <xs:element type="xs:string" name="location" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
