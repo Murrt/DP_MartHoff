@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2023 at 08:36 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Jun 16, 2023 at 03:33 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -53,47 +53,42 @@ INSERT INTO `locations` (`LocationID`, `LocationCity`, `address`, `state`, `zipc
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personeelsdata`
+-- Table structure for table `personnel`
 --
 
-CREATE TABLE `personeelsdata` (
+CREATE TABLE `personnel` (
   `SSN` varchar(200) NOT NULL,
   `lastname` varchar(999) DEFAULT NULL,
   `firstname` varchar(999) DEFAULT NULL,
   `hiredate` varchar(999) DEFAULT NULL,
   `salary` varchar(999) DEFAULT NULL,
   `gender` varchar(999) DEFAULT NULL,
-  `performance` varchar(999) DEFAULT NULL,
-  `position` varchar(999) DEFAULT NULL,
-  `location` varchar(999) DEFAULT NULL,
-  `PositionID` int(11) NOT NULL,
-  `LocationID` int(11) NOT NULL
+  `performance` varchar(999) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `personeelsdata`
+-- Dumping data for table `personnel`
 --
 
-INSERT INTO `personeelsdata` (`SSN`, `lastname`, `firstname`, `hiredate`, `salary`, `gender`, `performance`, `position`, `location`, `PositionID`, `LocationID`) VALUES
-('000-01-0000', 'Milgrom', 'Patricia', '10/1/2004', '57500.00 ', 'F', 'Average', 'Manager', 'Boston', 2, 2),
-('000-02-2222', 'Adams', 'Sandy', '1/15/2001', '19500.00 ', 'F', 'Average', 'Trainee', 'Atlanta', 1, 5),
-('121-78-7771', 'Mert', 'Hoff', '1997-06-12', ' 99500', 'M', 'Good', 'CEO', 'Chicago', 0, 0),
-('333-34-3333', 'Manin', 'Emily', '12/1/2000', '49500.00 ', 'F', 'Average', 'Account Representative', 'Boston', 1, 5),
-('333-43-4444', 'Smith', 'Frank', '1/29/1991', '65000.00 ', 'M', 'Good', 'Account Representative', 'Atlanta', 6, 2),
-('333-66-1234', 'Brown', 'Marietta', '3/7/2001', '18500.00 ', 'F', 'Poor', 'Trainee', 'Atlanta', 5, 0),
-('335-55-5533', 'Jones', 'Holly', '4/8/1986', '65000.00 ', 'F', 'Good', 'Manager', 'New York City', 0, 2),
-('432-19-8765', 'Bronson', 'Paul', '11/20/2003', '58000.00 ', 'M', 'Good', 'Manager', 'Denver', 1, 7),
-('444-45-4444', 'Frank', 'Vernon', '4/10/1985', '75000.00 ', 'M', 'Good', 'Account Representative', 'Miami', 1, 3),
-('464-64-4466', 'Webster', 'David', '1/29/1991', '58500.00 ', 'M', 'Poor', 'Manager', 'Salt Lake City', 8, 0),
-('500-50-0505', 'Rodriguez', 'Jose', '7/16/1998', '150000.00 ', 'M', 'Good', 'Regional Manager', 'New York City', 7, 6),
-('555-22-3333', 'Rubin', 'Patricia', '7/25/2003', '45000.00 ', 'F', 'Average', 'Account Representative', 'Boston', 1, 0),
-('555-56-5555', 'Charles', 'Kenneth', '6/18/1998', '40000.00 ', 'M', 'Poor', 'Account Representative', 'Boston', 0, 6),
-('612-99-1111', 'Roberts', 'Melissa', '5/14/1984', '79000.00 ', 'F', 'Good', 'Manager', 'Chicago', 0, 2),
-('625-62-6262', 'Holmes', 'Holly', '6/15/1992', '55000.00 ', 'F', 'Average', 'Manager', 'Miami', 0, 2),
-('767-74-7373', 'Martin', 'William', '8/26/2006', '23000.00 ', 'M', 'Good', 'Trainee', 'New York City', 6, 0),
-('776-67-6666', 'Adamson', 'David', '10/4/2002', '52000.00 ', 'M', 'Poor', 'Manager', 'Chicago', 3, 3),
-('777-78-7777', 'Marder', 'Kelly', '9/25/1997', '38500.00 ', 'F', 'Average', 'Account Representative', 'Chicago', 3, 0),
-('925-45-7116', 'Whitehead', 'David', '7/25/1980', '175000.00 ', 'M', 'Good', 'Regional Manager', 'Boston', 0, 0);
+INSERT INTO `personnel` (`SSN`, `lastname`, `firstname`, `hiredate`, `salary`, `gender`, `performance`) VALUES
+('000-01-0000', 'Milgrom', 'Patricia', '10/1/2004', '57500.00 ', 'F', 'Average'),
+('000-02-2222', 'Adams', 'Sandy', '1/15/2001', '19500.00 ', 'F', 'Average'),
+('333-34-3333', 'Manin', 'Emily', '12/1/2000', '49500.00 ', 'F', 'Average'),
+('333-43-4444', 'Smith', 'Frank', '1/29/1991', '65000.00 ', 'M', 'Good'),
+('333-66-1234', 'Brown', 'Marietta', '3/7/2001', '18500.00 ', 'F', 'Poor'),
+('335-55-5533', 'Jones', 'Holly', '4/8/1986', '65000.00 ', 'F', 'Good'),
+('432-19-8765', 'Bronson', 'Paul', '11/20/2003', '58000.00 ', 'M', 'Good'),
+('444-45-4444', 'Frank', 'Vernon', '4/10/1985', '75000.00 ', 'M', 'Good'),
+('464-64-4466', 'Webster', 'David', '1/29/1991', '58500.00 ', 'M', 'Poor'),
+('500-50-0505', 'Rodriguez', 'Jose', '7/16/1998', '150000.00 ', 'M', 'Good'),
+('555-22-3333', 'Rubin', 'Patricia', '7/25/2003', '45000.00 ', 'F', 'Average'),
+('555-56-5555', 'Charles', 'Kenneth', '6/18/1998', '40000.00 ', 'M', 'Poor'),
+('612-99-1111', 'Roberts', 'Melissa', '5/14/1984', '79000.00 ', 'F', 'Good'),
+('625-62-6262', 'Holmes', 'Holly', '6/15/1992', '55000.00 ', 'F', 'Average'),
+('767-74-7373', 'Martin', 'William', '8/26/2006', '23000.00 ', 'M', 'Good'),
+('776-67-6666', 'Adamson', 'David', '10/4/2002', '52000.00 ', 'M', 'Poor'),
+('777-78-7777', 'Marder', 'Kelly', '9/25/1997', '38500.00 ', 'F', 'Average'),
+('925-45-7116', 'Whitehead', 'David', '7/25/1980', '175000.00 ', 'M', 'Good');
 
 -- --------------------------------------------------------
 
@@ -134,9 +129,9 @@ ALTER TABLE `locations`
   ADD UNIQUE KEY `address` (`address`);
 
 --
--- Indexes for table `personeelsdata`
+-- Indexes for table `personnel`
 --
-ALTER TABLE `personeelsdata`
+ALTER TABLE `personnel`
   ADD PRIMARY KEY (`SSN`);
 
 --
@@ -153,13 +148,13 @@ ALTER TABLE `positions`
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `LocationID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `LocationID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `positions`
 --
 ALTER TABLE `positions`
-  MODIFY `PositionID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `PositionID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
