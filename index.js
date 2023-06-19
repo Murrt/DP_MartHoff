@@ -38,12 +38,12 @@ app.get('/users/:ssn?', function (req, res) {
     if (acceptHeader === 'application/xml') {
         haalAlleusersOpXML(req, res);
     } else {
-        if (req.params.ssn) {
+        if (req.params.ssn == undefined) {
             // Haal een specifieke user op op basis van het opgegeven SSN in de route parameter
-            haalSpecifiekeuserOp(req, res);
+            haalAlleusersOp(req, res);
         } else {
             // Haal alle users op als geen SSN is opgegeven
-            haalAlleusersOp(req, res);
+            haalSpecifiekeuserOp(req, res);
         }
     }
 });
@@ -57,7 +57,6 @@ app.post('/user', async function (req, res) {
             const schemaPath = "xsd_schemes/personeels_data_scheme.xsd";
             const XMLschema = xsd.parseFile(schemaPath);
             const validationErrors = XMLschema.validate(req.rawBody);
-            console.log(validationErrors);
             if (validationErrors == null) {
                 const result = await parseXML(req.rawBody);
                 await insertUserIntoDatabase(result.row, 'xml');
@@ -66,14 +65,12 @@ app.post('/user', async function (req, res) {
                 res.status(400).end("Ongeldige XML");
             }
         } catch (error) {
-            console.log(error)
             res.status(500).end("Interne serverfout");
         }
     } else if (acceptHeader == 'application/json') {
         try {
             const validationErrors = validateJSON(req.body, UserJSONschema);
 
-            console.log(validationErrors);
             if (validationErrors.length == 0) {
                 await insertUserIntoDatabase(req.body, 'json');
                 res.status(200).send("user toegevoegd, SSN: " + req.body.ssn);
@@ -81,7 +78,7 @@ app.post('/user', async function (req, res) {
                 res.status(400).end("JSON is onjuist");
             }
         } catch (error) {
-            console.log(error)
+            (error)
             res.status(500).end("Interne serverfout");
         }
     } else {
@@ -104,7 +101,6 @@ app.delete('/user/:ssn', async function (req, res) {
                 res.status(404).send("Geen user gevonden");
             }
         } catch (errors) {
-            console.log(errors)
             res.status(500).end("Interne serverfout");
         }
     } else {
@@ -156,7 +152,6 @@ app.post('/location', async function (req, res) {
 app.get('/location/:city', async function (req, res) {
     try {
         const locationCity = req.params.city;
-        console.log(locationCity);
         if (locationCity == "AlleLocaties") {
             await haalAlleLocationsOp(req, res);
         } else {
@@ -193,7 +188,6 @@ app.post('/position', async function (req, res) {
 
             if (positionValidation.errors.length === 0) {
                 const { PositionTitle, education, minSalary, maxSalary } = req.body;
-                console.log(req.body)
                 await addPosition(PositionTitle, education, minSalary, maxSalary);
                 res.status(200).send("Position added: " + PositionTitle);
             } else {
@@ -226,14 +220,10 @@ app.get('/position/:title', async function (req, res) {
 // Get location information
 app.get('/locationinfo', async function (req, res) {
     try {
-        const rows = await getLocationInfo();
-        if (rows !== null) {
-            res.status(200).send(rows);
-        } else {
-            res.status(404).send("No data found");
-        }
+        await getLocationInfo().then((data) => {
+            res.status(200).send(data);
+        })
     } catch (error) {
-        console.error(error);
         res.status(500).end("Internal Server Error");
     }
 });

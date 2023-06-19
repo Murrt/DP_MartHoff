@@ -34,7 +34,7 @@ async function haalAlleLocationsOp(req, res) {
 // Haal locatie op met stadsnaam
 function getLocationByCity(city) {
     const query = 'SELECT * FROM locations WHERE LocationCity = ?';
-    return executeQuery(null, null, query, false, [city])
+    executeQuery(null, null, query, false, [city])
         .then((rows) => {
             return rows[0];
         })
@@ -66,8 +66,17 @@ function addLocation(locationCity, address, state, zipcode, officephone) {
 }
 
 function getLocationInfo() {
-    const query = "SELECT location, COUNT(*) as employee_count FROM `personnel` INNER JOIN locations ON personnel.`LocationID` = locations.`LocationID` GROUP BY location";
-    return executeQuery(null, null, query, true);
+    return new Promise((resolve, reject) => {
+        const query = "SELECT LocationCity, COUNT(*) as employee_count FROM `personnel` INNER JOIN locations ON personnel.`LocationID` = locations.`LocationID` GROUP BY LocationCity";
+        executeQuery(null, null, query)
+            .then((rows) => {
+                resolve(rows)
+            })
+            .catch((err) => {
+                console.log(err)
+                return err
+            });
+    });
 }
 
 

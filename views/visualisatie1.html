@@ -31,17 +31,17 @@
   window.onload = function () {
     var dataPoints = [];
     var counter = 0;
-    $.get("http://localhost:8080/getAllUsersXML", function (data) {
-      $(data).find("row").each(function () {
+    $.get("http://localhost:8080/users/", function (data) {
+      $(data).each(function () {
         counter++;
         var $dataPoint = $(this);
-        var y = $dataPoint.find("salary").text();
-        var x = $dataPoint.find("firstname").text();
-        var z = $dataPoint.find("gender").text();
+        var y = $dataPoint[0]["salary"]
+        var x = $dataPoint[0]["firstname"]
+        var z = $dataPoint[0]["gender"]
         dataPoints.push({ FirstName: x, Salary: parseFloat(y), Gender: z });
       });
 
-      dataPoints = dataPoints.sort(function (a, b) { return a.Salary - b.Salary });
+      dataPoints = dataPoints.sort(function (a, b) { return b.Salary - a.Salary; });
       console.log(dataPoints)
 
       var x = d3.scaleLinear()

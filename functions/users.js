@@ -8,13 +8,27 @@ const builder = require('xmlbuilder2');
 function haalSpecifiekeuserOp(req, res) {
     const ssn = req.params.ssn;
     const query = 'SELECT * FROM personnel WHERE SSN = ?';
-    executeQuery(req, res, query, false, [ssn]);
+    executeQuery(req, res, query, false, [ssn])
+        .then((rows) => {
+            res.status(200).send(rows);
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send("Internal Server Error");
+        });
 }
 
 // Haal alle users op
 function haalAlleusersOp(req, res) {
     const query = 'SELECT * FROM personnel';
-    executeQuery(req, res, query, true);
+    executeQuery(req, res, query, true)
+        .then((rows) => {
+            res.status(200).send(rows);
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send("Internal Server Error");
+        });
 }
 
 
@@ -25,8 +39,8 @@ function haalAlleusersOpXML(req, res) {
             res.status(200).send(xml);
         })
         .catch((err) => {
-              console.error(err);
-              res.status(500).send("Internal Server Error");
+            console.error(err);
+            res.status(500).send("Internal Server Error");
         });
 }
 

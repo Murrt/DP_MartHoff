@@ -3,29 +3,29 @@
 
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 
 <h1>Verdeling aantal werknemers per stad</h1>
 <div id="my_dataviz"></div>
 <div id='div'>
   <script>
-    fetch('http://localhost:8080/getLocationinfo')
-      .then((response) => response.json())
-      .then((res) => {
+    window.onload = function () {
+      $.get("http://localhost:8080/locationinfo/", function (data) {
+        console.log(data)
         let newData = { 'info': {} };
         let newData_colors = { 'colors': {} };
-        Object.entries(res).forEach((entry) => {
-          const [key, value] = entry;
-          newData.info[value.location] = value.employee_count;
+        data.forEach((entry) => {
+          const { LocationCity, employee_count } = entry;
+          newData.info[LocationCity] = employee_count;
         });
+        // dimensions
+        var width = 950;
+        height = 650;
+        margin = 60;
 
-        // de dimenties zetten
-        var width = 950
-        height = 650
-        margin = 60
+        var radius = Math.min(width, height) / 2 - margin;
 
-        var radius = Math.min(width, height) / 2 - margin
-
-        // Append het svg object aan de body van de pagina
+        // Append the SVG object to the body of the page
         var svg = d3.select("#my_dataviz")
           .append("svg")
           .attr("width", width)
@@ -33,22 +33,22 @@
           .append("g")
           .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-        var data = newData['info']
+        var data = newData['info'];
 
         var color = d3.scaleOrdinal(d3.schemeCategory10);
 
         var pie = d3.pie()
           .sort(null)
-          .value(function (d) { return d.value; })
-        var data_ready = pie(d3.entries(data))
+          .value(function (d) { return d.value; });
+        var data_ready = pie(d3.entries(data));
 
         var arc = d3.arc()
           .innerRadius(radius * 0.5)
-          .outerRadius(radius * 0.8)
+          .outerRadius(radius * 0.8);
 
         var outerArc = d3.arc()
           .innerRadius(radius * 0.9)
-          .outerRadius(radius * 0.9)
+          .outerRadius(radius * 0.9);
 
         svg
           .selectAll('allSlices')
@@ -56,10 +56,10 @@
           .enter()
           .append('path')
           .attr('d', arc)
-          .attr('fill', function (d) { return (color(d.data.key)) })
+          .attr('fill', function (d) { return (color(d.data.key)); })
           .attr("stroke", "white")
           .style("stroke-width", "2px")
-          .style("opacity", 0.85)
+          .style("opacity", 0.85);
 
         svg
           .selectAll('allPolylines')
@@ -70,31 +70,32 @@
           .style("fill", "none")
           .attr("stroke-width", 1)
           .attr('points', function (d) {
-            var posA = arc.centroid(d)
-            var posB = outerArc.centroid(d)
+            var posA = arc.centroid(d);
+            var posB = outerArc.centroid(d);
             var posC = outerArc.centroid(d);
-            var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+            var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
             posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1);
-            return [posA, posB, posC]
-          })
+            return [posA, posB, posC];
+          });
 
         svg
           .selectAll('allLabels')
           .data(data_ready)
           .enter()
           .append('text')
-          .text(function (d) { return d.data.key + " aantal: " + d.data.value })
+          .text(function (d) { return d.data.key + " aantal: " + d.data.value; })
           .attr('transform', function (d) {
             var pos = outerArc.centroid(d);
-            var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+            var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
             pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
             return 'translate(' + pos + ')';
           })
           .style('text-anchor', function (d) {
-            var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-            return (midangle < Math.PI ? 'start' : 'end')
-          })
-
+            var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2;
+            return (midangle < Math.PI ? 'start' : 'end');
+          });
       });
+    }
 
   </script>
+</div>

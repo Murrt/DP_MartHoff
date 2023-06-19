@@ -34,14 +34,14 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8080/users/0",
+					"raw": "localhost:8080/users/",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"users",
-						"0"
+						""
 					]
 				},
 				"description": "Get user endpoint\n\nom een specifieke user op te halen voel het SSN nummer in na de in de link. Voorbeeld; localhost:8080/getUsers?000-01-0000\n\nOm alle user op te halen; localhost:8080/getUsers\n\nAls er geen gebruiker met dat SSN nummer wordt gevonden komt er 'No user found will be returned' terug."
@@ -62,6 +62,26 @@
 					"path": [
 						"Users",
 						""
+					]
+				},
+				"description": "Get user endpoint\n\nom een specifieke user op te halen voel het SSN nummer in na de in de link. Voorbeeld; localhost:8080/getUsers?000-01-0000\n\nOm alle user op te halen; localhost:8080/getUsers\n\nAls er geen gebruiker met dat SSN nummer wordt gevonden komt er 'No user found will be returned' terug."
+			},
+			"response": []
+		},
+		{
+			"name": "get one user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users/000-01-0000",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"000-01-0000"
 					]
 				},
 				"description": "Get user endpoint\n\nom een specifieke user op te halen voel het SSN nummer in na de in de link. Voorbeeld; localhost:8080/getUsers?000-01-0000\n\nOm alle user op te halen; localhost:8080/getUsers\n\nAls er geen gebruiker met dat SSN nummer wordt gevonden komt er 'No user found will be returned' terug."
@@ -193,6 +213,26 @@
 					"path": [
 						"Location",
 						"AlleLocaties"
+					]
+				},
+				"description": "Get location endpoint\n\nom een specifieke location op te halen voer de LocationCity in na de in de link. Voorbeeld; localhost:8080/getLocation?Los Angleles\n\nOm alle user op te halen; localhost:8080/getLocation\n\nAls er geen location met de LocationCity wordt gevonden komt er 'Could not find locations' terug."
+			},
+			"response": []
+		},
+		{
+			"name": "get location Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/location/Atlanta",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"location",
+						"Atlanta"
 					]
 				},
 				"description": "Get location endpoint\n\nom een specifieke location op te halen voer de LocationCity in na de in de link. Voorbeeld; localhost:8080/getLocation?Los Angleles\n\nOm alle user op te halen; localhost:8080/getLocation\n\nAls er geen location met de LocationCity wordt gevonden komt er 'Could not find locations' terug."
