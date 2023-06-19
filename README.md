@@ -12,6 +12,16 @@ Met Express en NodeJS kun je gemakkelijk schaalbare rest api's opzetten. Omdat N
 Met Javascript kan ik met **JSON SCHEMA** gemakkelijk mijn schema tegen de ingevoerde JSON valideren. 
 
 
+# Veranderingen na feedback
+
+* Code opgeschoond
+* Index.js alleen nog voor de request.
+* Functies, Server, Schema en routes nu in aparte files
+* Namen bij Database aangepast
+* Accept header nu gebruikt voor xml/json request
+* Geen hoofdletters in request
+* Geen var maar const of let. 
+
 
 # Installatie en gebruik
 
